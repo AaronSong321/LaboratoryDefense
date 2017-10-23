@@ -1,0 +1,50 @@
+Towers
+
+1 MachineGun
+level : 1/2/3
+damage : 36/70/105
+attack type : bullet
+attack speed : 100/150/200
+range : 0-240
+money : 100/80/150
+ballistic velocity : 3500
+target type : unit
+target height : ground only
+
+
+2 SharpnelThrower
+level : 1/2/3
+damage : 70/105/140
+attack type : explosive
+explosion radius : 80/90/100
+attack speed : 60/70/80
+range : 180-450/180-490/180-530
+money : 180/160/240
+ballistic velocity : 1400
+target type : location
+target height : ground only
+
+
+3 PatriotMissile
+level : 1/2/3
+damage : 60+120/120+150/180+200
+attack type : mixed(bullet+explosive)
+explosion radius : 45
+attack speed : 40/50/60
+range : 0-650
+money : 200/140/280
+ballistic velocity : 2000
+target type : unit
+target height : air only
+
+
+4 Sniper
+level : 1/2/3
+damage : 300/500/700
+attack type : bullet
+attack speed : 40
+range : 0-600
+money : 550/400/450
+ballistic velocity : 4500
+target type : unit
+target height : ground and air
