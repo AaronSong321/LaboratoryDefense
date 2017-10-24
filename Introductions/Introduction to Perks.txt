@@ -1,0 +1,27 @@
+Perks
+
+
+1 Oleg:MachinaryMaster
+Properties:
+	MachineGun basic damage increase: 1% per level
+	MachineGun basic firing rate increase: 1.0/1.2/1.6 per level
+	Sniper basic damage increase: 0.6% per level
+	Sniper basic firing rate increase: 0.1 per level
+	Initialize money bonus: 1.2% per level
+	
+Abilities:
+    level 10:
+		Armour-piercing bullet: Increase the damage of MachineGun, Sniper, CrossbowHunter, PillBox 25%.
+		Cash bonus: Every enemy killed provides a cash bonus of 4.
+	level 20:
+		Never fly away: Enable MachineGun and PillBox to shoot flying enemies.
+		Ramrod and reload: Increase the firing rate of CrossbowHunter and Sniper 12.
+	level 30:
+		Bullets and shells: MachineGun slow enemies 15%/20%/24% for 3s.
+		All by hands: Increase the effectiveness duration of MolotovCocktail 2s.
+	level 40:
+		Crazy boy: Increase the firing rate of MachineGun and PillBox 40/50/60.
+		Multimillionaire: Every Mamoth, BristleTank and Dragon killed provides a cash bonus of 40, which can be overlayed from Cash bonus.
+	level 50:
+		Fat punishment: Every damage from Sniper will do an extra damage equal to 20% of the maximum health of the target. The maximum extra damage is 900.
+		Dud versus head: Rocket can shoot in any distance; when shooting from a distance shorter than the original minimum, the rocket shell deals 4/6/8 times of the bullet damage, but it will not explode.

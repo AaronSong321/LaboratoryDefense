@@ -1,0 +1,140 @@
+Monsters for Hypothetical Difficulty
+
+
+1 Elfin
+Description: The most common creatures on Scorpio, their harmless appearance is actually hard to be connected with blood and death.
+health point: 92
+speed: 120
+damage: 1
+type: ground only
+resistance: 
+	explosive: taking only 80% damage
+	tesla: taking only 60% damage
+vulnerable: none
+money bonus: 9
+weight: 6
+
+
+2 Crawler
+Description: Another category of little boys, they are always ready for giving sneak attack to their preys thanks to their agile bodies.
+health point: 60
+speed: 200
+damage: 1
+type: ground only
+resistance: none
+vulnerable: none
+money bonus: 10
+weight: 7
+
+
+3 Zombie
+Description: Cumbersome and dull bodies though they have, zombies are never scared when walking through bullets and explosions. There is one thing you should know, they show up in every corner across the universe, don't they?
+health point: 180
+speed: 75
+damage: 1
+type: ground only
+resistance: 
+	bullet: 70%
+	explosive: 60%
+	tesla: 60%
+vulnerable: none
+money bonus: 16
+weight: 8
+	
+	
+4 Thirsty
+Description: In our daily life, bats are only willing to steal children's candies in Hallowmas. Maybe they find some cola in our laboratory?
+health point: 60
+speed: 130
+damage: 1
+type: air only
+resistance: none
+vulnerable:
+	bullet: 120%
+money bonus: 15
+weight: 8
+
+	
+5 Butcher
+Description: 
+health point: 650
+speed: 100
+damage: 2
+type: ground only
+resistance: 
+	explosive: 70%
+	bullet: 70%
+vulnerable:
+	flame: 150%
+money bonus: 25
+weight: 18
+
+
+6 Unicorn
+Description: Dinosaurs are extinct in one world, but not another.
+health point: 500
+speed: 130
+damage: 2
+type: ground only
+resistance: 
+	bullet: 80%
+vulnerable: none
+money bonus: 26
+weight: 19
+
+
+7 Desolator
+Description: Notorious name as they have, there are hardly any human scientists who have managed to escape from their tentacles.
+health point: 900
+speed: 110
+damage: 2
+type: ground only
+resistance: 
+	toxic: 30%
+vulnerable: none
+money bonus: 36
+weight: 22
+
+
+8 Manmoth
+Description: This one, however, may destroy the whole laboratory all by itself, perhaps including consuming all the scientists.
+health point: 2100
+speed: 110
+damage: 3
+type: ground only
+resistance: 
+	explosive: 70%
+vulnerable: 
+	bullet: 130%
+money bonus: 75
+weight: 50
+
+
+9 BristleTank
+Description: Equiped with bristle and steel armour, they can be immortal on the field.
+health point: 3500
+speed: 110
+damage: 3
+type: ground only
+resistance: 
+	bullet: 60%
+	tesla: 60%
+	toxic: 60%
+	flame: 60%
+vulnerable: 
+	explosive: 140%
+money bonus: 160
+weight: 70
+
+
+10 Dragon
+Description: The real dragons, their flame can burn all things.
+health point: 2400
+speed: 110
+damage: 3
+type: air only
+resistance:
+	flame: 40%
+vulnerable: none
+money bonus: 120
+weight: 60
