@@ -1,7 +1,7 @@
 Perks
 
 
-1 Oleg:MachinaryMaster
+1 Oleg.Fording:MachinaryMaster
 Properties:
 	MachineGun basic damage increase: 1% per level
 	MachineGun basic firing rate increase: 1.0/1.2/1.6 per level
@@ -23,5 +23,31 @@ Abilities:
 		Crazy boy: Increase the firing rate of MachineGun and PillBox 40/50/60.
 		Multimillionaire: Every Mamoth, BristleTank and Dragon killed provides a cash bonus of 40, which can be overlayed from Cash bonus.
 	level 50:
-		Fat punishment: Every damage from Sniper will do an extra damage equal to 20% of the maximum health of the target. The maximum extra damage is 900.
+		Fat punishment: Every damage from Sniper will do an extra damage 	equal to 20% of the maximum health of the target. The maximum extra damage is 900.
 		Dud versus head: Rocket can shoot in any distance; when shooting from a distance shorter than the original minimum, the rocket shell deals 4/6/8 times of the bullet damage, but it will not explode.
+		
+		
+		
+		
+2 Jack.Kennedy:MadBoomer
+Properties:
+	Explosion damage increase: 1% per level
+	Explosion range increase: 0.2% per level
+	Experience gained increase: 25%
+	
+Abilities:
+	level 10:
+		Increase firing rate of PatriotMissile, Rocket, SharpnelThrower 20%.
+		Increase explosion range of PatriotMissile, Rocket, SharpnelThrower 15%.
+	level 20:
+		Increase explosion damage of PatriotMissile, Rocket, SharpnelThrower 20%.
+		Increase direct damage of PatriotMissile, Rocket 25%.
+	level 30:
+		MachineGun and PillBox deal explosive damage with an explosion range of 30.
+		Increase MachineGun, PillBox, Prisim 45%.
+	level 40:
+		Increase range of PatriotMissile, Rocket, SharpnelThrower 30%.
+		Upgrade PatriotMissile, Rocket, SharpnelThrower, ignoring explosion resistance when attacking monsters typed tiny or common.
+	level 50:
+		Increase Rocket damage to monsters typed giant or boss 40%.
+		Give Rocket and PatriotMissile a chance of 5% to release a nuclear explosion, which can deal an extra nuclear explosion, with a range of 80, damage 50 for 8s. Both the direct and following damages are both typed nuclear.
