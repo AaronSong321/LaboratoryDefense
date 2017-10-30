@@ -12,7 +12,7 @@ Properties:
 Abilities:
     level 10:
 		Armour-piercing bullet: Increase the damage of MachineGun, Sniper, CrossbowHunter, PillBox 25%.
-		Cash bonus: Every enemy killed provides a cash bonus of 4.
+		Cash bonus: Every enemy killed provides a cash bonus of 40%.
 	level 20:
 		Never fly away: Enable MachineGun and PillBox to shoot flying enemies.
 		Ramrod and reload: Increase the firing rate of CrossbowHunter and Sniper 12.
@@ -21,10 +21,10 @@ Abilities:
 		All by hands: Increase the effectiveness duration of MolotovCocktail 2s.
 	level 40:
 		Crazy boy: Increase the firing rate of MachineGun and PillBox 40/50/60.
-		Multimillionaire: Every Mamoth, BristleTank and Dragon killed provides a cash bonus of 40, which can be overlayed from Cash bonus.
+		Multimillionaire: Every Mamoth, BristleTank and Dragon killed provides a cash bonus of 70%, which can be overlayed from Cash bonus.
 	level 50:
-		Fat punishment: Every damage from Sniper will do an extra damage 	equal to 20% of the maximum health of the target. The maximum extra damage is 900.
-		Dud versus head: Rocket can shoot in any distance; when shooting from a distance shorter than the original minimum, the rocket shell deals 4/6/8 times of the bullet damage, but it will not explode.
+		Fat penalty: Every damage from Sniper will do an extra damage equal to 20% of the maximum health of the target. The maximum extra damage is 900.
+		Dud versus head: Rocket can shoot in any distance; when shooting from a distance shorter than the original minimum, the rocket shell deals 4/6/8 times of the bullet damage without explosion.
 		
 		
 		
@@ -37,17 +37,43 @@ Properties:
 	
 Abilities:
 	level 10:
-		Increase firing rate of PatriotMissile, Rocket, SharpnelThrower 20%.
-		Increase explosion range of PatriotMissile, Rocket, SharpnelThrower 15%.
+		SpeedLoader: Increase firing rate of PatriotMissile, Rocket, SharpnelThrower 20%.
+		Aggregation: Dncrease explosion range of PatriotMissile, Rocket 35%, but increase the explosion damage of PatriotMissile, Rocket 40%. 
 	level 20:
-		Increase explosion damage of PatriotMissile, Rocket, SharpnelThrower 20%.
-		Increase direct damage of PatriotMissile, Rocket 25%.
+		High explosion: Increase explosion damage of PatriotMissile, Rocket, SharpnelThrower 20%.
+		Back off: The direct hit of PatriotMissile, Rocket can stun the target typed tiny, common or giant for 0.7s.
 	level 30:
-		MachineGun and PillBox deal explosive damage with an explosion range of 30.
-		Increase MachineGun, PillBox, Prisim 45%.
+		A new type: MachineGun and PillBox deal explosive damage with an explosion range of 30.
+		Another catastrophy: Increase MachineGun, PillBox, Prisim damage 50%.
 	level 40:
-		Increase range of PatriotMissile, Rocket, SharpnelThrower 30%.
-		Upgrade PatriotMissile, Rocket, SharpnelThrower, ignoring explosion resistance when attacking monsters typed tiny or common.
+		Snipe with explosives: Increase range of PatriotMissile, Rocket, SharpnelThrower 30%.
+		Bully: Upgrade PatriotMissile, Rocket, SharpnelThrower, ignoring explosion resistance when attacking enemies typed tiny or common.
 	level 50:
-		Increase Rocket damage to monsters typed giant or boss 40%.
-		Give Rocket and PatriotMissile a chance of 5% to release a nuclear explosion, which can deal an extra nuclear explosion, with a range of 80, damage 50 for 8s. Both the direct and following damages are both typed nuclear.
+		Final core: Increase Rocket damage to enemies typed giant or boss 40%.
+		Nuclear Bomber: Give Rocket and PatriotMissile a chance of 5% to release a nuclear explosion, which can deal an extra explosion, with a range of 80, damage 50 for 8s. Both the direct and following damages are typed nuclear.
+		
+		
+		
+3 Warren:FireRanger
+Properties:
+	Flame damage increase: 1% per level
+	Explosion damage increase: 0.4% per level
+	Tesla damage increase: 0.4% per level
+	
+Abilities:
+	level 10:
+		Barbecue: Increase flame damage 25%.
+		Gasoline and coke: Increase FlameThrower, MolotovCocktail, Macro range 10%.
+	level 20:
+		Well done: Increase flame duration 1s.
+		Macro-cooked: Enemies being affected by Macro are slowed 10%.
+	level 30:
+		Double-edged sword: Decrease Macro damage to enemies typed tiny 50%, but increase macro damage to enemies typed giant 50%.
+		Fire Armor: Increase health point of the basement 30%, and decrease damage from enemies typed giant 20%.
+	level 40:
+		FireHunter: CrossbowHunter deals flame damage, and the minimum range decreases to 0.
+		MultiHeat: Enemies can be affected by FlameThrower, MolotovCocktail, Macro at the meantime, and the damage is overlayed linearly.
+	level 50:
+		Air rush: Enable Macro to attack air units.
+		Disarm: Upgrade FlameThrower, MolotovCocktail, Macro, ignoring flame resistance when attacking enemies typed tiny, common or giant.
+
