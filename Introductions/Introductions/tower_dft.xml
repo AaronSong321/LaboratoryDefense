@@ -1,0 +1,488 @@
+<!--Towers -->
+
+<Towers>
+
+<bullet>
+
+<MachineGun_lv1>
+  <attack_type>bullet</attack_type>
+  <damage>36</damage>
+  <firing_rate>140</firing_rate>
+  <range_min>0</range_min>
+  <range_max>220</range_max>
+  <money>100</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</MachineGun_lv1>
+
+<MachineGun_lv2>
+  <attack_type>bullet</attack_type>
+  <damage>45</damage>
+  <firing_rate>210</firing_rate>
+  <range_min>0</range_min>
+  <range_max>220</range_max>
+  <money>80</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</MachineGun_lv2>
+
+<MachineGun_lv3>
+  <attack_type>bullet</attack_type>
+  <damage>55</damage>
+  <firing_rate>280</firing_rate>
+  <range_min>0</range_min>
+  <range_max>220</range_max>
+  <money>140</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</MachineGun_lv3>
+
+<Sniper_lv1>
+  <attack_type>bullet</attack_type>
+  <damage>300</damage>
+  <firing_rate>56</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>400</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</Sniper_lv1>
+
+<Sniper_lv2>
+  <attack_type>bullet</attack_type>
+  <damage>500</damage>
+  <firing_rate>56</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>250</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</Sniper_lv2>
+
+<Sniper_lv3>
+  <attack_type>bullet</attack_type>
+  <damage>700</damage>
+  <firing_rate>56</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>250</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</Sniper_lv3>
+
+<CrossbowHunter_lv1>
+  <attack_type>bullet</attack_type>
+  <damage>110</damage>
+  <stun_possibility>0.07</stun_possibility>
+  <stun_duration>0.5</stun_duration>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>400</range_max>
+  <money>210</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</CrossbowHunter_lv1>
+
+<CrossbowHunter_lv2>
+  <attack_type>bullet</attack_type>
+  <damage>220</damage>
+  <stun_possibility>0.07</stun_possibility>
+  <stun_duration>0.7</stun_duration>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>400</range_max>
+  <money>190</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</CrossbowHunter_lv2>
+
+<CrossbowHunter_lv3>
+  <attack_type>bullet</attack_type>
+  <damage>330</damage>
+  <stun_possibility>0.07</stun_possibility>
+  <stun_duration>0.9</stun_duration>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>400</range_max>
+  <money>190</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</CrossbowHunter_lv3>
+
+<PillBox_lv1>
+  <attack_type>bullet</attack_type>
+  <damage>50</damage>
+  <firing_rate>280</firing_rate>
+  <range_min>0</range_min>
+  <range_max>260</range_max>
+  <money>220</money>
+  <ballistic_velocity>1500</ballistic_velocity>
+  <target_type>ground</target_type>
+</PillBox_lv1>
+
+<PillBox_lv2>
+  <attack_type>bullet</attack_type>
+  <damage>85</damage>
+  <firing_rate>336</firing_rate>
+  <range_min>0</range_min>
+  <range_max>260</range_max>
+  <money>240</money>
+  <ballistic_velocity>1500</ballistic_velocity>
+  <target_type>ground</target_type>
+</PillBox_lv2>
+
+<PillBox_lv3>
+  <attack_type>bullet</attack_type>
+  <damage>120</damage>
+  <firing_rate>392</firing_rate>
+  <range_min>0</range_min>
+  <range_max>260</range_max>
+  <money>280</money>
+  <ballistic_velocity>1500</ballistic_velocity>
+  <target_type>ground</target_type>
+</PillBox_lv3>
+
+</bullet>
+
+<explosive>
+
+<SharpnelThrower_lv1>
+  <attack_type>explosive</attack_type>
+  <damage>70</damage>
+  <explosion_radius>80</explosion_radius>
+  <firing_rate>84</firing_rate>
+  <range_min>150</range_min>
+  <range_max>350</range_max>
+  <money>180</money>
+  <ballistic_velocity>700</ballistic_velocity>
+  <target_type>ground</target_type>
+</SharpnelThrower_lv1>
+
+<SharpnelThrower_lv2>
+  <attack_type>explosive</attack_type>
+  <damage>105</damage>
+  <explosion_radius>90</explosion_radius>
+  <firing_rate>98</firing_rate>
+  <range_min>150</range_min>
+  <range_max>380</range_max>
+  <money>160</money>
+  <ballistic_velocity>700</ballistic_velocity>
+  <target_type>ground</target_type>
+</SharpnelThrower_lv2>
+
+<SharpnelThrower_lv3>
+  <attack_type>explosive</attack_type>
+  <damage>140</damage>
+  <explosion_radius>100</explosion_radius>
+  <firing_rate>112</firing_rate>
+  <range_min>150</range_min>
+  <range_max>420</range_max>
+  <money>240</money>
+  <ballistic_velocity>700</ballistic_velocity>
+  <target_type>ground</target_type>
+</SharpnelThrower_lv3>
+
+<PatriotMissile_lv1>
+  <attack_type>bullet_explosive</attack_type>
+  <damage>60:120</damage>
+  <explosion_radius>45</explosion_radius>
+  <firing_rate>56</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>180</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>air</target_type>
+</PatriotMissile_lv1>
+
+<PatriotMissile_lv2>
+  <attack_type>explosive</attack_type>
+  <damage>120:150</damage>
+  <explosion_radius>45</explosion_radius>
+  <firing_rate>70</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>140</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>air</target_type>
+</PatriotMissile_lv2>
+
+<PatriotMissile_lv3>
+  <attack_type>explosive</attack_type>
+  <damage>180:200</damage>
+  <explosion_radius>45</explosion_radius>
+  <firing_rate>84</firing_rate>
+  <range_min>0</range_min>
+  <range_max>550</range_max>
+  <money>160</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>air</target_type>
+</PatriotMissile_lv3>
+
+<Rocket_lv1>
+  <attack_type>bullet_explosive</attack_type>
+  <damage>100:150</damage>
+  <explosion_radius>50</explosion_radius>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>450</range_max>
+  <money>450</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</Rocket_lv1>
+
+<Rocket_lv2>
+  <attack_type>explosive</attack_type>
+  <damage>120:200</damage>
+  <explosion_radius>50</explosion_radius>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>450</range_max>
+  <money>400</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</Rocket_lv2>
+
+<Rocket_lv3>
+  <attack_type>explosive</attack_type>
+  <damage>180:250</damage>
+  <explosion_radius>60</explosion_radius>
+  <firing_rate>70</firing_rate>
+  <range_min>100</range_min>
+  <range_max>450</range_max>
+  <money>480</money>
+  <ballistic_velocity>850</ballistic_velocity>
+  <target_type>both</target_type>
+</Rocket_lv3>
+
+</explosive>
+
+<tesla>
+
+<Prisim_lv1>
+  <attack_type>tesla</attack_type>
+  <damage>80</damage>
+  <firing_rate>77</firing_rate>
+  <range_min>0</range_min>
+  <range_max>240</range_max>
+  <money>135</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Prisim_lv1>
+
+<Prisim_lv2>
+  <attack_type>tesla</attack_type>
+  <damage>130</damage>
+  <firing_rate>77</firing_rate>
+  <range_min>0</range_min>
+  <range_max>240</range_max>
+  <money>155</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Prisim_lv2>
+
+<Prisim_lv3>
+  <attack_type>tesla</attack_type>
+  <damage>220</damage>
+  <firing_rate>77</firing_rate>
+  <range_min>0</range_min>
+  <range_max>240</range_max>
+  <money>185</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Prisim_lv3>
+
+<Transformer_lv1>
+ <attack_type>tesla</attack_type>
+ <damage>35</damage>
+ <slow_effect>0.8</slow_effect>
+ <slow_duration>3</slow_duration>
+ <firing_rate>70</firing_rate>
+ <range_min>0</range_min>
+ <range_max>240</range_max>
+ <money>140</money>
+ <ballistic_velocity>1000</ballistic_velocity>
+ <target_type>ground_all</target_type>
+</Transformer_lv1>
+
+<Transformer_lv2>
+ <attack_type>tesla</attack_type>
+ <damage>15</damage>
+ <slow_effect>0.6</slow_effect>
+ <slow_duration>3</slow_duration>
+ <firing_rate>70</firing_rate>
+ <range_min>0</range_min>
+ <range_max>270</range_max>
+ <money>160</money>
+ <ballistic_velocity>1000</ballistic_velocity>
+ <target_type>ground_all</target_type>
+</Transformer_lv2>
+
+<Transformer_lv3>
+  <attack_type>tesla</attack_type>
+  <damage>0</damage>
+  <slow_effect>0.4</slow_effect>
+  <slow_duration>3</slow_duration>
+  <firing_rate>70</firing_rate>
+  <range_min>0</range_min>
+  <range_max>300</range_max>
+  <money>180</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</Transformer_lv3>
+
+<Thunder_lv1>
+  <attack_type>tesla</attack_type>
+  <damage>180</damage>
+  <stun_possibility>0.14</stun_possibility>
+  <stun_duration>0.7</stun_duration>
+  <firing_rate>55</firing_rate>
+  <range_min>0</range_min>
+  <range_max>370</range_max>
+  <money>240</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Thunder_lv1>
+
+<Thunder_lv2>
+  <attack_type>tesla</attack_type>
+  <damage>300</damage>
+  <stun_possibility>0.16</stun_possibility>
+  <stun_duration>0.7</stun_duration>
+  <firing_rate>55</firing_rate>
+  <range_min>0</range_min>
+  <range_max>370</range_max>
+  <money>210</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Thunder_lv2>
+
+<Thunder_lv3>
+  <attack_type>tesla</attack_type>
+  <damage>450</damage>
+  <stun_possibility>0.18</stun_possibility>
+  <stun_duration>0.7</stun_duration>
+  <firing_rate>55</firing_rate>
+  <range_min>0</range_min>
+  <range_max>370</range_max>
+  <money>260</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>both</target_type>
+</Thunder_lv3>
+
+</tesla>
+
+<flame>
+
+<FlameThrower_lv1>
+  <attack_type>flame</attack_type>
+  <burning_damage>50</burning_damage>
+  <burning_duration>2</burning_duration>
+  <firing_rate>300</firing_rate>
+  <range_min>0</range_min>
+  <range_max>190</range_max>
+  <money>135</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</FlameThrower_lv1>
+
+<FlameThrower_lv2>
+  <attack_type>flame</attack_type>
+  <burning_damage>65</burning_damage>
+  <burning_duration>2</burning_duration>
+  <firing_rate>300</firing_rate>
+  <range_min>0</range_min>
+  <range_max>190</range_max>
+  <money>85</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</FlameThrower_lv2>
+
+<FlameThrower_lv3>
+  <attack_type>flame</attack_type>
+  <burning_damage>80</burning_damage>
+  <burning_duration>2</burning_duration>
+  <firing_rate>300</firing_rate>
+  <range_min>0</range_min>
+  <range_max>190</range_max>
+  <money>75</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</FlameThrower_lv3>
+
+<MolotovCocktail_lv1>
+  <attack_type>flame</attack_type>
+  <burning_damage>80</burning_damage>
+  <burning_duration>5</burning_duration>
+  <firing_rate>150</firing_rate>
+  <range_min>0</range_min>
+  <range_max>320</range_max>
+  <money>200</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</MolotovCocktail_lv1>
+
+<MolotovCocktail_lv2>
+  <attack_type>flame</attack_type>
+  <burning_damage>85</burning_damage>
+  <burning_duration>7</burning_duration>
+  <firing_rate>150</firing_rate>
+  <range_min>0</range_min>
+  <range_max>320</range_max>
+  <money>130</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</MolotovCocktail_lv2>
+
+<MolotovCocktail_lv3>
+  <attack_type>flame</attack_type>
+  <burning_damage>85</burning_damage>
+  <burning_duration>10</burning_duration>
+  <firing_rate>150</firing_rate>
+  <range_min>0</range_min>
+  <range_max>320</range_max>
+  <money>130</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground</target_type>
+</MolotovCocktail_lv3>
+
+<Macro_lv1>
+  <attack_type>flame</attack_type>
+  <burning_damage>30</burning_damage>
+  <burning_duration>5</burning_duration>
+  <firing_rate>300</firing_rate>
+  <range_min>0</range_min>
+  <range_max>320</range_max>
+  <money>380</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</Macro_lv1>
+
+<Macro_lv2>
+  <attack_type>flame</attack_type>
+  <burning_damage>30</burning_damage>
+  <burning_duration>5</burning_duration>
+  <firing_rate>300</firing_rate>
+  <range_min>0</range_min>
+  <range_max>380</range_max>
+  <money>350</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</Macro_lv2>
+
+<Macro_lv3>
+  <attack_type>flame</attack_type>
+  <burning_damage>30</burning_damage>
+  <burning_duration>5</burning_duration>
+  <firing_rate>650</firing_rate>
+  <range_min>0</range_min>
+  <range_max>450</range_max>
+  <money>350</money>
+  <ballistic_velocity>1000</ballistic_velocity>
+  <target_type>ground_all</target_type>
+</Macro_lv3>
+
+</flame>
+
+
+
+</Towers>

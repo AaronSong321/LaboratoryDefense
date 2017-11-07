@@ -1,0 +1,130 @@
+Towers
+
+1 MachineGun
+level : 1/2/3
+damage : 36/45/55
+attack type : bullet
+firing rate : 100/150/200
+range : 0-220
+money : 100/80/140
+ballistic velocity : 3000
+target type : unit
+target height : ground only
+
+
+2 SharpnelThrower
+level : 1/2/3
+damage : 70/105/140
+attack type : explosive
+explosion radius : 80/90/100
+firing rate : 60/70/80
+range : 150-350/150-380/150-420
+money : 180/160/240
+ballistic velocity : 1400
+target type : location
+target height : ground only
+
+
+3 PatriotMissile
+level : 1/2/3
+damage : 60+120/120+150/180+200
+attack type : mixed(bullet+explosive)
+explosion radius : 45
+firing rate : 40/50/60
+range : 0-550
+money : 180/140/160
+ballistic velocity : 2000
+target type : unit
+target height : air only
+
+
+4 Sniper
+level : 1/2/3
+damage : 300/500/700
+attack type : bullet
+firing rate : 40
+range : 0-550
+money : 550/400/450
+ballistic velocity : 3500
+target type : unit
+target height : ground and air
+
+
+5 Prisim
+level : 1/2/3
+damage : 80/130/220
+attack type : tesla
+firing rate : 55/75/95
+range : 0-240
+money : 135/155/185
+ballistic velocity : 4000
+target type : unit
+target height : ground and air
+
+
+6 FameThrower
+level : 1/2/3
+damage : 30/40/50
+attack type : flame
+burning radius: 30
+burning damage: 10/25/45
+burning duration: 4s
+firing rate : 100/150/200
+range : 0-210
+money : 110/120/150
+ballistic velocity : 1200
+target type : location
+target height : ground only
+
+
+7 CrossbowHunter
+level : 1/2/3
+damage : 110/220/330
+attack type : bullet
+firing rate: 50
+range : 100-450
+money : 160/140/140
+ballistic velocity : 1800
+target type : unit
+target height : ground and air
+
+
+8 PillBox
+level: 1/2/3
+damage: 50/85/120
+attack type: bullet
+firing rate: 200/240/280
+range: 0-260
+money: 220/240/280
+ballistic velocity: 3000
+target type: unit
+target height: ground only
+
+
+9 Rocket
+level : 1/2/3
+damage : 100+150/100+250/100+350
+attack type : mixed(bullet+explosive)
+explosion radius: 40/50/60
+firing rate : 50
+range : 150-400
+money : 450/400/450
+ballistic velocity : 2000
+target type : unit
+target height : ground and air
+
+
+10 MolotovCocktail
+level : 1/2/3
+damage : 30/40/50
+attack type : flame
+burning radius: 55
+burning damage: 25/45/70
+burning duration: 4s
+firing rate : 40
+range : 0-300
+decleration effectiveness: 20%/28%/36%
+money : 200/200/200
+ballistic velocity : 900
+target type : location
+target height : ground only
