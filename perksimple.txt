@@ -1,4 +1,4 @@
-money tested
-attackrate tested
-attack tested
-speed not tested
+money -tested
+attackrate -tested
+attack -tested
+speed -not tested
