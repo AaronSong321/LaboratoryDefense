@@ -1,0 +1,529 @@
+Initialize engine version: 5.6.3p2 (b3d7a6428558)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 3GB (ID=0x1c02)
+    Vendor:   NVIDIA
+    VRAM:     2997 MB
+    Driver:   23.21.13.8813
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.016 seconds
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.922440 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 30dc -> priority: 1 
+  Thread -> id: 3f80 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.381741 ms
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\System.Xml.Linq.dll (this message is harmless)
+Platform assembly: E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\LabDefense_Data\Managed\System.Xml.dll (this message is harmless)
+DirectoryNotFoundException: Could not find a part of the path "E:\Aaron\Software Engineering\BigEvent\LaboratoryDefense\Files\enemies\enemy_hypo.xml".
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream:.ctor (string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at System.Xml.XmlUrlResolver.GetEntity (System.Uri absoluteUri, System.String role, System.Type ofObjectToReturn) [0x00000] in <filename unknown>:0 
+  at Mono.Xml2.XmlTextReader.GetStreamFromUrl (System.String url, System.String& absoluteUriString) [0x00000] in <filename unknown>:0 
+  at Mono.Xml2.XmlTextReader..ctor (Boolean dummy, System.Xml.XmlResolver resolver, System.String url, XmlNodeType fragType, System.Xml.XmlParserContext context) [0x00000] in <filename unknown>:0 
+  at System.Xml.XmlTextReader..ctor (Boolean dummy, System.Xml.XmlResolver resolver, System.String url, XmlNodeType fragType, System.Xml.XmlParserContext context) [0x00000] in <filename unknown>:0 
+  at System.Xml.XmlReader.Create (System.String url, System.Xml.XmlReaderSettings settings, System.Xml.XmlParserContext context) [0x00000] in <filename unknown>:0 
+  at System.Xml.XmlReader.Create (System.String url, System.Xml.XmlReaderSettings settings) [0x00000] in <filename unknown>:0 
+  at System.Xml.Linq.XElement.Load (System.String uri, LoadOptions options) [0x00000] in <filename unknown>:0 
+  at System.Xml.Linq.XElement.Load (System.String uri) [0x00000] in <filename unknown>:0 
+  at EnemyDescription.LinqToXml (System.String enemyName, System.String fileName) [0x00000] in <filename unknown>:0 
+  at Scene_Description.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 624.
+Total: 0.432976 ms (FindLiveObjects: 0.047774 ms CreateObjectMapping: 0.018328 ms MarkObjects: 0.359361 ms  DeleteObjects: 0.007211 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Turrent () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Perk () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Turrent () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Turrent () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Monster () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Elfin () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Crawler () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Crawler () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.ToggleGroup.NotifyToggleOn (UnityEngine.UI.Toggle toggle) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Scene_Description.OnClick_Zombie () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent`1[System.Boolean].Invoke (Boolean arg0) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value, Boolean sendCallback) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.Set (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.set_isOn (Boolean value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.InternalToggle () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Toggle.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.890551 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 325.
+Total: 0.240375 ms (FindLiveObjects: 0.026140 ms CreateObjectMapping: 0.012920 ms MarkObjects: 0.187192 ms  DeleteObjects: 0.013521 ms)
+
