@@ -5,12 +5,15 @@ using System.Text;
 using UnityEngine;
 
 
-public class ImmediateCube : AttackCube
+public class ExplosionCube: AttackCube
 {
     public GameObject target;
+    public int explosionRadius;
+    public double explosionAttenuation;
     public GameObject hitEffect;
+    public GameObject particleEffect;
 
-    public void Generate(ImmediateCube source)
+    public ExplosionCube(ExplosionCube source)
     {
         this.damage = source.damage;
         this.attackType = source.attackType;
@@ -19,14 +22,19 @@ public class ImmediateCube : AttackCube
         this.ballisticVelocity = source.ballisticVelocity;
         this.isTracing = source.isTracing;
         this.target = source.target;
+        this.explosionRadius = source.explosionRadius;
+        this.explosionAttenuation = source.explosionAttenuation;
         this.hitEffect = source.hitEffect;
+        this.particleEffect = source.particleEffect;
     }
 
-    public override string ToString()
+    public override String ToString()
     {
         StringBuilder ans = new StringBuilder();
-        ans.Append("Normal Attack:\n");
+        ans.Append("Explosion damage effect:\n");
         ans.Append(base.ToString());
+        ans.Append("\tExplosion Radius: " + explosionRadius + "\n");
+        ans.Append("\tExplosion Attenuation: " + explosionAttenuation + "\n");
         return ans.ToString();
     }
 }

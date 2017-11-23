@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour {
 
+class EnemyObj: MonoBehaviour
+{
     public float speed = 10;
     public float hp = 150;
     private float totalHp;
@@ -26,35 +29,30 @@ public class Enemy : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
-	void Start () {
+    void Start()
+    {
         totalHp = hp;
         hpSlider = GetComponentInChildren<Slider>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed * player.perk.mobspeed_adj;
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    void Update()
+    {
         Move();
-	}
+    }
 
 
     void Move()
     {
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
-        /*if (index > positions.Length - 1) return;
-        transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
-        if (Vector3.Distance(positions[index].position, transform.position) < 0.2f)
-        {
-            index++;
-        }*/
         if (!agent.pathPending && agent.remainingDistance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance <= agent.stoppingDistance)
         {
             ReachDestination();
         }
     }
-    //达到终点
+
     void ReachDestination()
     {
         player.Playerhp -= damage;
@@ -81,9 +79,8 @@ public class Enemy : MonoBehaviour {
     void Die()
     {
         GameObject effect = GameObject.Instantiate(explosionEffect, transform.position, transform.rotation);
-        player.ChangeMoney((int)(enemyMoney*player.perk.money_adj));
+        player.ChangeMoney((int)(enemyMoney * player.perk.money_adj));
         Destroy(effect, 1.5f);
         Destroy(this.gameObject);
     }
-
 }

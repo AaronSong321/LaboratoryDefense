@@ -5,12 +5,15 @@ using System.Text;
 using UnityEngine;
 
 
-public class ImmediateCube : AttackCube
+public class StunCube: AttackCube
 {
     public GameObject target;
+    public double stunDuration;
+    public double possibility;
     public GameObject hitEffect;
+    public GameObject particleEffect;
 
-    public void Generate(ImmediateCube source)
+    public void Generate(StunCube source)
     {
         this.damage = source.damage;
         this.attackType = source.attackType;
@@ -20,13 +23,18 @@ public class ImmediateCube : AttackCube
         this.isTracing = source.isTracing;
         this.target = source.target;
         this.hitEffect = source.hitEffect;
+        this.stunDuration = source.stunDuration;
+        this.possibility = source.possibility;
+        this.particleEffect = source.particleEffect;
     }
 
     public override string ToString()
     {
         StringBuilder ans = new StringBuilder();
-        ans.Append("Normal Attack:\n");
+        ans.Append("Stun Effect:\n");
         ans.Append(base.ToString());
-        return ans.ToString();
+        ans.Append("\tDuration:" + stunDuration + "\n");
+        ans.Append("\tPossibility: " + possibility + "\n");
+        return base.ToString();
     }
 }
