@@ -4,21 +4,27 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
-public class ExplosionFiringCube: AttackCube
+[System.Serializable]
+public class ExplosionFiringCube
 {
     public GameObject target;
-    public int explosionRadius;
-    public double explosionAttenuation;
+    public float explosionRadius;
+    public float explosionAttenuation;
     public GameObject hitEffect;
     public GameObject explosionParticleEffect;
-
+    public int damage;
+    public TowerDescription.AttackType attackType;
+    public TowerDescription.TargetType targetType;
+    public GameObject bulletPrefab;
+    public int ballisticVelocity;
+    public bool isTracing;
+    public bool enable;
     public int firingRadius;
     public int duration;
     public int damagePerSecond;
     public GameObject firingParticleEffect;
 
-    public ExplosionFiringCube(ExplosionFiringCube source)
+    public void Generate(ExplosionFiringCube source)
     {
         this.damage = source.damage;
         this.attackType = source.attackType;

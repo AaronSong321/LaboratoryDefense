@@ -44,7 +44,8 @@ public class Scene_Welcome : MonoBehaviour {
 
     public void OnClick_Start()
     {
-        SceneManager.LoadScene("MainScene");
+        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("SoloGame");
     }
 
     public void OnClick_Description()

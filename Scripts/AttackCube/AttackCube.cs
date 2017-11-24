@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+[System.Serializable]
 public class AttackCube
 {
     public int damage;

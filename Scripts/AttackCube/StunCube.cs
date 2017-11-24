@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
-public class StunCube: AttackCube
+[System.Serializable]
+public class StunCube
 {
+    public int damage;
+    public TowerDescription.AttackType attackType;
+    public TowerDescription.TargetType targetType;
+    public GameObject bulletPrefab;
+    public int ballisticVelocity;
+    public bool isTracing;
+    public bool enable;
     public GameObject target;
     public double stunDuration;
     public double possibility;

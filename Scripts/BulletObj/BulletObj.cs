@@ -12,6 +12,7 @@ public class BulletObj : MonoBehaviour
     public GameObject particleEffect;
     public GameObject target;
     public float lowestDistance;
+    public float speed;
     public Tower fatherTower;
     public ImmediateCube ic;
     public ExplosionCube ec;
@@ -20,25 +21,11 @@ public class BulletObj : MonoBehaviour
     public SlowCube sc;
     public StunCube tc;
 
-    public void ApplyFatherTower(Tower tower)
-    {
-        if (tower == null)
-        {
-            Debug.Log("Father tower (MachineGunLv1 expected) does not exist when creating a bullet (MachineGunBulletLv1).");
-            return;
-        }
-        fatherTower = tower;
-        if (tower.attackBehavior.ic == null)
-        {
-            Debug.Log("Father tower (MachineGunLv1) does not have an existing reference to ic (ImmediateCube expected).");
-            return;
-        }
-        ic.Generate(tower.attackBehavior.ic);
-    }
+    public Player player;
 
     void Start()
     {
-        ApplyFatherTower(fatherTower);
+        
     }
 
 
@@ -51,14 +38,25 @@ public class BulletObj : MonoBehaviour
         }
 
         transform.LookAt(target.transform.position);
-        transform.Translate(Vector3.forward * ic.ballisticVelocity * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         Vector3 dir = target.transform.position - transform.position;
         if (dir.magnitude < lowestDistance)
         {
             //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             //target.GetComponent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
-            target.GetComponent<Enemy>().TakeDamage(ic.damage);
+            if (ic != null && ic.enable)
+            {
+                target.GetComponent<Enemy>().TakeDamage(ic.damage);
+            }
+            if (ec != null && ec.enable)
+            {
+                Collider[] collider = Physics.OverlapSphere(transform.position, ec.explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
+                foreach (Collider col in collider)
+                {
+                    col.GetComponentInParent<Enemy>().TakeDamage(ec.damage * player.perk.Attack_adj);
+                }
+            }
             Die();
         }
     }

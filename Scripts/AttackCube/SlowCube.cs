@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
-public class SlowCube: AttackCube
+[System.Serializable]
+public class SlowCube
 {
+    public int damage;
+    public TowerDescription.AttackType attackType;
+    public TowerDescription.TargetType targetType;
+    public GameObject bulletPrefab;
+    public int ballisticVelocity;
+    public bool isTracing;
+    public bool enable;
     public GameObject target;
     public int slowRadius;
     public int slowDuration;

@@ -34,7 +34,19 @@ public class Bullet : MonoBehaviour {
         if (dir.magnitude < distanceArriveTarget)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            target.GetComponent<Enemy>().TakeDamage(damage*player.perk.Attack_adj);
+            if (tag == "Missile")
+            {
+                float explosionRadius = 4f;
+                Collider[] collider = Physics.OverlapSphere(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
+                foreach (Collider col in collider)
+                {
+                    col.GetComponentInParent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
+                }
+            }
+            else
+            {
+                target.GetComponent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
+            }
             Die();   
         }
     }

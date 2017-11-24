@@ -9,26 +9,31 @@ public class BuildManager : MonoBehaviour {
     public TurretData laserTurretData;
     public TurretData missileTurretData;
     public TurretData standardTurretData;
-
-    //表示当前选择的炮台(要建造的炮台)
     private TurretData selectedTurretData;
-    //表示当前选择的炮台(场景中的游戏物体)
+
+    public Tower ST;
+    public Tower TF;
+    public Tower selectedTower;
+    
     private MapCube selectedMapCube;
-
     private Player player;
-
     public Animator moneyAnimator;
-
-
     public GameObject upgradeCanvas;
-
     private Animator upgradeCanvasAnimator;
-
     public Button buttonUpgrade;
+
+    ToggleGroup TGTowers;
+    Toggle TSharpnelThrower;
+    Toggle TTransFormer;
 
     void Awake()
     {
+        TGTowers = GameObject.Find("Canvas/TurretSwitch").GetComponent<ToggleGroup>();
+        TSharpnelThrower = GameObject.Find("Canvas/TurretSwitch/TSharpnelThrower").GetComponent<Toggle>();
+        TTransFormer = GameObject.Find("Canvas/TurretSwitch/TTransFormer").GetComponent<Toggle>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        selectedTower = null;
     }
     void Start()
     {
@@ -62,6 +67,14 @@ public class BuildManager : MonoBehaviour {
                             moneyAnimator.SetTrigger("Flicker");
                         }
                     }
+                    else if (selectedTower != null && mapCube.turretGo == null)
+                    {
+                        if (player.Money > selectedTower.money)
+                        {
+                            player.ChangeMoney(-selectedTower.money);
+                            mapCube.BuildTower(selectedTower);
+                        }
+                    }
                     else if (mapCube.turretGo != null)
                     {
                         
@@ -91,12 +104,27 @@ public class BuildManager : MonoBehaviour {
         }
     }
 
+    public void OnTowerSelected()
+    {
+        if (TSharpnelThrower.isOn)
+        {
+            selectedTower = ST;
+            selectedTurretData = null;
+        }
+        if (TTransFormer.isOn) selectedTower = TF;
+        Debug.Log("selectedTower = " + selectedTower);
+        Debug.Log("selectedTurretData = " + selectedTurretData);
+    }
+
     public void OnLaserSelected(bool isOn)
     {
         if (isOn)
         {
             selectedTurretData = laserTurretData;
+            selectedTower = null;
         }
+        Debug.Log("selectedTower = " + selectedTower);
+        Debug.Log("selectedTurretData = " + selectedTurretData);
     }
 
     public void OnMissileSelected(bool isOn)
@@ -104,14 +132,20 @@ public class BuildManager : MonoBehaviour {
         if (isOn)
         {
             selectedTurretData = missileTurretData;
+            selectedTower = null;
         }
+        Debug.Log("selectedTower = " + selectedTower);
+        Debug.Log("selectedTurretData = " + selectedTurretData);
     }
     public void OnStandardSelected(bool isOn)
     {
         if (isOn)
         {
             selectedTurretData = standardTurretData;
+            selectedTower = null;
         }
+        Debug.Log("selectedTower = " + selectedTower);
+        Debug.Log("selectedTurretData = " + selectedTurretData);
     }
 
     void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade=false)
@@ -133,14 +167,29 @@ public class BuildManager : MonoBehaviour {
 
     public void OnUpgradeButtonDown()
     {
-        if (player.Money >= selectedMapCube.turretData.costUpgraded)
+        if (selectedMapCube.turretData != null)
         {
-            player.ChangeMoney(-selectedMapCube.turretData.costUpgraded);
-            selectedMapCube.UpgradeTurret();
+            if (player.Money >= selectedMapCube.turretData.costUpgraded)
+            {
+                player.ChangeMoney(-selectedMapCube.turretData.costUpgraded);
+                selectedMapCube.UpgradeTurret();
+            }
+            else
+            {
+                moneyAnimator.SetTrigger("Flicker");
+            }
         }
         else
         {
-            moneyAnimator.SetTrigger("Flicker");
+            if (player.Money >= selectedMapCube.tower.money)
+            {
+                player.ChangeMoney(-selectedMapCube.tower.money);
+                selectedMapCube.UpgradeTower();
+            }
+            else
+            {
+                moneyAnimator.SetTrigger("Flicker");
+            }
         }
 
         StartCoroutine(HideUpgradeUI());

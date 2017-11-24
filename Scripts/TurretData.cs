@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TurretData  {
+public class TurretData
+{
     public GameObject turretPrefab;
     public int cost;
     public GameObject turretUpgradedPrefab;

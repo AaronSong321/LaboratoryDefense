@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
-public class AttackBehavior: MonoBehaviour
+[System.Serializable]
+public class AttackBehavior
 {
     public ImmediateCube ic;
     public ExplosionCube ec;

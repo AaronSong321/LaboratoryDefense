@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-class CrossbowHunterBehaviorLv1: AttackBehavior
+public class CrossbowHunterBehaviorLv1: AttackBehavior
 {
     void Awake()
     {

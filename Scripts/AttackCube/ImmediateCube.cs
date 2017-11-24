@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
-public class ImmediateCube : AttackCube
+[System.Serializable]
+public class ImmediateCube
 {
+    public int damage;
+    public TowerDescription.AttackType attackType;
+    public TowerDescription.TargetType targetType;
+    public GameObject bulletPrefab;
+    public int ballisticVelocity;
+    public bool isTracing;
+    public bool enable;
     public GameObject target;
     public GameObject hitEffect;
 

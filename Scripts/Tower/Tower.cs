@@ -8,34 +8,73 @@ using UnityEngine;
 public class Tower: MonoBehaviour
 {
     public AttackBehavior attackBehavior;
-    public double firingRate;
-    public double rangeMin;
-    public double rangeMax;
+    public float firingRate;
+    //public float rangeMin;
+    //public float rangeMax;
     public int money;
-    public float attackRateTime = 1;
-    private float timer = 0;
+    private float attackRateTime;
+    private float timer;
     public GameObject bulletPrefab;
+    public GameObject towerPrefabLv1;
+    public GameObject towerPrefabLv2;
+    public GameObject towerPrefabLv3;
     public Transform firePosition;
     public Transform head;
     private List<GameObject> enemies = new List<GameObject>();
     private Player player;
+    public int level;
 
-    public bool useLaser = false;
+    void Awake()
+    {
+        attackRateTime = 100 / firingRate;
+        timer = 0;
+    }
 
-    public float damageRate = 70;
+    void Update()
+    {
+        if (enemies.Count > 0 && enemies[0] != null)
+        {
+            Vector3 targetPosition = enemies[0].transform.position;
+            targetPosition.y = head.position.y;
+            head.LookAt(targetPosition);
+        }
 
+        timer += Time.deltaTime;
+        if (enemies.Count > 0 && timer >= attackRateTime)
+        {
+            timer = 0;
+            Attack();
+        }
+    }
+
+    /*
     public override string ToString()
     {
         StringBuilder ans = new StringBuilder();
-        if (attackBehavior == null) return ans.ToString();
         ans.Append("Name: " + name + "\n");
-        if (attackBehavior.ic != null) ans.Append(attackBehavior.ic.ToString() + "\n");
-        if (attackBehavior.ec != null) ans.Append(attackBehavior.ec.ToString() + "\n");
-        if (attackBehavior.fc != null) ans.Append(attackBehavior.fc.ToString() + "\n");
-        if (attackBehavior.efc != null) ans.Append(attackBehavior.efc.ToString() + "\n");
-        if (attackBehavior.sc != null) ans.Append(attackBehavior.sc.ToString() + "\n");
-        if (attackBehavior.tc != null) ans.Append(attackBehavior.tc.ToString() + "\n");
+        if (ic != null) ans.Append(ic.ToString() + "\n");
+        if (ec != null) ans.Append(ec.ToString() + "\n");
+        if (fc != null) ans.Append(fc.ToString() + "\n");
+        if (efc != null) ans.Append(efc.ToString() + "\n");
+        if (sc != null) ans.Append(sc.ToString() + "\n");
+        if (tc != null) ans.Append(tc.ToString() + "\n");
         return base.ToString();
+    }
+    */
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Enemy")
+        {
+            enemies.Add(col.gameObject);
+        }
+    }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.tag == "Enemy")
+        {
+            enemies.Remove(col.gameObject);
+        }
     }
 
     void Attack()

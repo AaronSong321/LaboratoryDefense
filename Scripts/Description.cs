@@ -728,7 +728,7 @@ public class Description
                      "Target Type: ground\n";
                 break;
             case Language.Chinese:
-                answer = "名字：狙击塔\n" +
+                answer = "名字：机枪碉堡\n" +
                      "伤害：50/85/120\n" +
                      "攻击类型：子弹\n" +
                      "攻击速度：280/336/392\n" +
@@ -760,7 +760,7 @@ public class Description
                      "Target Type: ground or air\n";
                 break;
             case Language.Chinese:
-                answer = "名字：狙击塔\n" +
+                answer = "名字：猎人塔\n" +
                      "伤害：110/220/330\n" +
                      "攻击类型：子弹\n" +
                      "攻击速度：70\n" +
@@ -938,6 +938,148 @@ public class Description
                      "攻击速度：70\n" +
                      "射程：0-240/0-260/0-280\n" +
                      "造价：140/160/180\n" +
+                     "目标类型：地面单位\n";
+                break;
+            default:
+                answer = "Unknown language pack";
+                break;
+        }
+        return answer;
+    }
+
+    public static String Thunder(Language l)
+    {
+        String answer = "";
+        switch (l)
+        {
+            case Language.English:
+                answer = "Name: Thunder\n" +
+                     "Damage: 180/300/450\n" +
+                     "Attack Type: tesla\n" +
+                     "Firing Rate: 77\n" +
+                     "Stun Possibility: 0.14/0.16/0.18\n" +
+                     "Stun Duration: 0.7" +
+                     "Range: 0-240\n" +
+                     "Cost: 240/210/260\n" +
+                     "Target Type: ground\n";
+                break;
+            case Language.Chinese:
+                answer = "名字：闪电塔\n" +
+                     "伤害：80/130/160\n" +
+                     "攻击类型：电磁\n" +
+                     "眩晕几率：0.14/0.16/0.18\n" +
+                     "眩晕时间：0.7\n" +
+                     "攻击速度：77\n" +
+                     "射程：0-240\n" +
+                     "造价：135/155/165\n" +
+                     "目标类型：地面单位\n";
+                break;
+            default:
+                answer = "Unknown language pack";
+                break;
+        }
+        return answer;
+    }
+
+    public static String FlameThrower(Language l)
+    {
+        String answer = "";
+        switch (l)
+        {
+            case Language.English:
+                answer = "Name: FlameThrower\n" +
+                     "Damage: 0\n" +
+                     "Attack Type: flame\n" +
+                     "Damage Per Second: 50/70/90\n" +
+                     "Duration: 2s\n" +
+                     "Burning Radius: 80\n" +
+                     "Firing Rate: 300\n" +
+                     "Range: 0-190\n" +
+                     "Cost: 135/85/75\n" +
+                     "Target Type: ground\n";
+                break;
+            case Language.Chinese:
+                answer = "名字：火焰喷射器\n" +
+                     "直接伤害：0\n" +
+                     "攻击类型：火焰\n" +
+                     "灼烧伤害（每秒）：50/70/90\n" +
+                     "持续时间：2秒" +
+                     "灼烧半径：80" +
+                     "攻击速度：300\n" +
+                     "射程：0-190\n" +
+                     "造价：135/85/75\n" +
+                     "目标类型：地面单位\n";
+                break;
+            default:
+                answer = "Unknown language pack";
+                break;
+        }
+        return answer;
+    }
+
+    public static String MolotovCocktail(Language l)
+    {
+        String answer = "";
+        switch (l)
+        {
+            case Language.English:
+                answer = "Name: MolotovCocktail\n" +
+                     "Damage: 0\n" +
+                     "Attack Type: flame\n" +
+                     "Damage Per Second: 80/85/85\n" +
+                     "Duration: 5/7/10s\n" +
+                     "Burning Radius: 45\n" +
+                     "Firing Rate: 150\n" +
+                     "Range: 0-320\n" +
+                     "Cost: 200/130/130\n" +
+                     "Target Type: ground\n";
+                break;
+            case Language.Chinese:
+                answer = "名字：燃烧瓶\n" +
+                     "直接伤害：0\n" +
+                     "攻击类型：火焰\n" +
+                     "灼烧伤害（每秒）：50/70/90\n" +
+                     "持续时间：5秒/7秒/10秒" +
+                     "灼烧半径：45" +
+                     "攻击速度：150\n" +
+                     "射程：0-320\n" +
+                     "造价：135/85/75\n" +
+                     "目标类型：地面单位\n";
+                break;
+            default:
+                answer = "Unknown language pack";
+                break;
+        }
+        return answer;
+    }
+
+    public static String Micro(Language l)
+    {
+        String answer = "";
+        switch (l)
+        {
+            case Language.English:
+                answer = "Name: Micro\n" +
+                     "Damage: 0\n" +
+                     "Attack Type: flame\n" +
+                     "Damage Per Second: 30/35/40\n" +
+                     "Duration: 5s\n" +
+                     "Burning Radius: 160/180/200\n" +
+                     "Firing Rate: 300\n" +
+                     "Range: 0-400\n" +
+                     "Cost: 135/85/75\n" +
+                     "Target Type: ground\n";
+                break;
+            case Language.Chinese:
+                answer = "名字：闪电塔\n" +
+                     "直接伤害：0\n" +
+                     "攻击类型：火焰\n" +
+                     "灼烧伤害（每秒）：30/35/40\n" +
+                     "持续时间：5秒" +
+                     "灼烧半径：160/180/200" +
+                     "攻击速度：300\n" +
+                     "射程：0-400\n" +
+                     "造价：135/85/75\n" +
                      "目标类型：地面单位\n";
                 break;
             default:

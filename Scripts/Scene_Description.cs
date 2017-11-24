@@ -31,6 +31,10 @@ public class Scene_Description : MonoBehaviour {
     Toggle toggle_Rocket;
     Toggle toggle_Prisim;
     Toggle toggle_Transformer;
+    Toggle toggle_Thunder;
+    Toggle toggle_FlameThrower;
+    Toggle toggle_MolotovCocktail;
+    Toggle toggle_Micro;
     Text text_Tower;
 
     Toggle toggle_Elfin;
@@ -78,6 +82,10 @@ public class Scene_Description : MonoBehaviour {
         toggle_PatriotMissile = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_PatriotMissile").GetComponent<Toggle>();
         toggle_Prisim = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_Prisim").GetComponent<Toggle>();
         toggle_Transformer = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_Transformer").GetComponent<Toggle>();
+        toggle_Thunder = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_Thunder").GetComponent<Toggle>();
+        toggle_FlameThrower = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_FlameThrower").GetComponent<Toggle>();
+        toggle_MolotovCocktail = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_MolotovCocktail").GetComponent<Toggle>();
+        toggle_Micro = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_Micro").GetComponent<Toggle>();
         text_Tower = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/Scroll View/Viewport/Content").GetComponent<Text>();
         text_Tower.text = Description.MachineGun(Scene_Welcome.languageChosen);
         //</toggleGroup_Turrent>
@@ -179,10 +187,10 @@ public class Scene_Description : MonoBehaviour {
         if (toggle_Rocket.isOn) text_Tower.text = Description.Rocket(Scene_Welcome.languageChosen);
         if (toggle_Prisim.isOn) text_Tower.text = Description.Prisim(Scene_Welcome.languageChosen);
         if (toggle_Transformer.isOn) text_Tower.text = Description.Transformer(Scene_Welcome.languageChosen);
-        //if (toggle_Thunder.isOn) text_Tower.text = Description.Thunder(Description.Language.Chinese);
-        //if (toggle_FlameThrower.isOn) text_Tower.text = Description.FlameThrower(Description.Language.Chinese);
-        //if (toggle_MolotovCocktail.isOn) text_Tower.text = Description.MolotovCocktail(Description.Language.Chinese);
-        //if (toggle_Micro.isOn) text_Tower.text = Description.Micro(Description.Language.Chinese);
+        if (toggle_Thunder.isOn) text_Tower.text = Description.Thunder(Description.Language.Chinese);
+        if (toggle_FlameThrower.isOn) text_Tower.text = Description.FlameThrower(Description.Language.Chinese);
+        if (toggle_MolotovCocktail.isOn) text_Tower.text = Description.MolotovCocktail(Description.Language.Chinese);
+        if (toggle_Micro.isOn) text_Tower.text = Description.Micro(Description.Language.Chinese);
     }
 
     public void OnClick_AnyPerk()
