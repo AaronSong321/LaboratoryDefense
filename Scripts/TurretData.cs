@@ -5,10 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class TurretData
 {
-    public GameObject turretPrefab;
-    public int cost;
-    public GameObject turretUpgradedPrefab;
-    public int costUpgraded;
+    public GameObject[] turretPrefab;
+    public int[] cost;
     public TurretType type;
 }
 public enum TurretType

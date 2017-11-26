@@ -11,28 +11,22 @@ public class StunCube
     public TowerDescription.AttackType attackType;
     public TowerDescription.TargetType targetType;
     public GameObject bulletPrefab;
-    public int ballisticVelocity;
     public bool isTracing;
     public bool enable;
-    public GameObject target;
-    public double stunDuration;
-    public double possibility;
+    public float stunDuration;
+    public float possibility;
     public GameObject hitEffect;
-    public GameObject particleEffect;
 
     public void Generate(StunCube source)
     {
-        this.damage = source.damage;
-        this.attackType = source.attackType;
-        this.targetType = source.targetType;
-        this.bulletPrefab = source.bulletPrefab;
-        this.ballisticVelocity = source.ballisticVelocity;
-        this.isTracing = source.isTracing;
-        this.target = source.target;
-        this.hitEffect = source.hitEffect;
-        this.stunDuration = source.stunDuration;
-        this.possibility = source.possibility;
-        this.particleEffect = source.particleEffect;
+        damage = source.damage;
+        attackType = source.attackType;
+        targetType = source.targetType;
+        bulletPrefab = source.bulletPrefab;
+        isTracing = source.isTracing;
+        hitEffect = source.hitEffect;
+        stunDuration = source.stunDuration;
+        possibility = source.possibility;
     }
 
     public override string ToString()

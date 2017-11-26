@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
     private Player player;
     public void SetTarget(Transform _target)
     {
-        this.target = _target;
+        target = _target;
     }
 
     void Update()
@@ -43,6 +43,12 @@ public class Bullet : MonoBehaviour {
                     col.GetComponentInParent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
                 }
             }
+            else if (tag == "Continuous")
+            {
+                float firingDuration = 4f;
+                float firingDamagePerSecond = 10000f;
+                target.GetComponent<Enemy>().TakeFiringDebuff(firingDamagePerSecond, firingDuration);
+            }
             else
             {
                 target.GetComponent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
@@ -53,7 +59,7 @@ public class Bullet : MonoBehaviour {
 
     void Die()
     {
-        GameObject effect = GameObject.Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+        GameObject effect = Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
         Destroy(effect, 1);
         Destroy(this.gameObject);
     }

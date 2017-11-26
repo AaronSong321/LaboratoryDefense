@@ -16,7 +16,7 @@ public class Description
                 break;
             case "中文（简体）":ans = Language.Chinese;
                 break;
-            default: ans = Language.English;
+            default: ans = Language.Chinese;
                 break;
         }
         return ans;
@@ -544,8 +544,8 @@ public class Description
                  "type: ground\n" +
                  "money bonus: 65\n" +
                  "resistance\n" +
-                 "    bullet: 0.7\n" +
-                 "    explosive: 1.3\n" +
+                 "    bullet: 1.3\n" +
+                 "    explosive: 0.7\n" +
                  "    tesla: 1\n" +
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
@@ -559,8 +559,8 @@ public class Description
                  "类型：地面单位\n" +
                  "金钱奖励：65\n" +
                  "伤害抗性：\n" +
-                 "    子弹抗性：0.7\n" +
-                 "    爆炸抗性：1.3\n" +
+                 "    子弹抗性：1.3\n" +
+                 "    爆炸抗性：0.7\n" +
                  "    电磁抗性：1\n" +
                  "    火焰抗性：1\n" +
                  "    核能抗性：1\n";

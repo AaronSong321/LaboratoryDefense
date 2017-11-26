@@ -4,11 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class SSoloGame : MonoBehaviour
+{
+    Button BPause;
+
+    void Awake()
+    {
+        BPause = GameObject.Find("Canvas/BPause").GetComponent<Button>();
+    }
+
+    public void OnPauseClick()
+    {
+        if (Time.timeScale == 1) Time.timeScale = 0;
+        if (Time.timeScale == 0) Time.timeScale = 1;
+    }
+
+    /*
     public GameObject endUI;
     public Text endMessage;
 
-    public static GameManager Instance;
+    public static SSoloGame Instance;
     private EnemySpawner enemySpawner;
     void Awake()
     {
@@ -30,10 +45,11 @@ public class GameManager : MonoBehaviour {
 
     public void OnButtonRetry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void OnButtonMenu()
     {
         SceneManager.LoadScene("Welcome");
     }
+    */
 }

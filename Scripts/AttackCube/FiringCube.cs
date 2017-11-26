@@ -11,29 +11,23 @@ public class FiringCube
     public TowerDescription.AttackType attackType;
     public TowerDescription.TargetType targetType;
     public GameObject bulletPrefab;
-    public int ballisticVelocity;
     public bool isTracing;
     public bool enable;
-    public GameObject target;
     public int duration;
     public int damagePerSecond;
     public float radius;
     public GameObject hitEffect;
-    public GameObject particleEffect;
 
     public void Generate(FiringCube source)
     {
-        this.damage = source.damage;
-        this.attackType = source.attackType;
-        this.targetType = source.targetType;
-        this.bulletPrefab = source.bulletPrefab;
-        this.ballisticVelocity = source.ballisticVelocity;
-        this.isTracing = source.isTracing;
-        this.target = source.target;
-        this.radius = source.radius;
-        this.duration = source.duration;
-        this.damagePerSecond = source.damagePerSecond;
-        this.particleEffect = source.particleEffect;
+        damage = source.damage;
+        attackType = source.attackType;
+        targetType = source.targetType;
+        bulletPrefab = source.bulletPrefab;
+        isTracing = source.isTracing;
+        radius = source.radius;
+        duration = source.duration;
+        damagePerSecond = source.damagePerSecond;
     }
 
     public override string ToString()

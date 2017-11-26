@@ -11,28 +11,22 @@ public class ExplosionCube
     public TowerDescription.AttackType attackType;
     public TowerDescription.TargetType targetType;
     public GameObject bulletPrefab;
-    public int ballisticVelocity;
     public bool isTracing;
     public bool enable;
-    public GameObject target;
     public float explosionRadius;
     public float explosionAttenuation;
     public GameObject hitEffect;
-    public GameObject particleEffect;
     
     public void Generate(ExplosionCube source)
     {
-        this.damage = source.damage;
-        this.attackType = source.attackType;
-        this.targetType = source.targetType;
-        this.bulletPrefab = source.bulletPrefab;
-        this.ballisticVelocity = source.ballisticVelocity;
-        this.isTracing = source.isTracing;
-        this.target = source.target;
-        this.explosionRadius = source.explosionRadius;
-        this.explosionAttenuation = source.explosionAttenuation;
-        this.hitEffect = source.hitEffect;
-        this.particleEffect = source.particleEffect;
+        damage = source.damage;
+        attackType = source.attackType;
+        targetType = source.targetType;
+        bulletPrefab = source.bulletPrefab;
+        isTracing = source.isTracing;
+        explosionRadius = source.explosionRadius;
+        explosionAttenuation = source.explosionAttenuation;
+        hitEffect = source.hitEffect;
     }
 
     public override String ToString()

@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-public class Debuff: MonoBehaviour
+public class Debuff
 {
 
 }
