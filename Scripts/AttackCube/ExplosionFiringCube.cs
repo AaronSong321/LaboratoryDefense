@@ -16,7 +16,6 @@ public class ExplosionFiringCube
     public TowerDescription.AttackType attackType;
     public TowerDescription.TargetType targetType;
     public GameObject bulletPrefab;
-    public int ballisticVelocity;
     public bool isTracing;
     public bool enable;
     public int firingRadius;
@@ -26,22 +25,21 @@ public class ExplosionFiringCube
 
     public void Generate(ExplosionFiringCube source)
     {
-        this.damage = source.damage;
-        this.attackType = source.attackType;
-        this.targetType = source.targetType;
-        this.bulletPrefab = source.bulletPrefab;
-        this.ballisticVelocity = source.ballisticVelocity;
-        this.isTracing = source.isTracing;
-        this.target = source.target;
-        this.explosionRadius = source.explosionRadius;
-        this.explosionAttenuation = source.explosionAttenuation;
-        this.hitEffect = source.hitEffect;
-        this.explosionParticleEffect = source.explosionParticleEffect;
+        damage = source.damage;
+        attackType = source.attackType;
+        targetType = source.targetType;
+        bulletPrefab = source.bulletPrefab;
+        isTracing = source.isTracing;
+        target = source.target;
+        explosionRadius = source.explosionRadius;
+        explosionAttenuation = source.explosionAttenuation;
+        hitEffect = source.hitEffect;
+        explosionParticleEffect = source.explosionParticleEffect;
 
-        this.firingRadius = source.firingRadius;
-        this.duration = source.duration;
-        this.damagePerSecond = source.damagePerSecond;
-        this.firingParticleEffect = source.firingParticleEffect;
+        firingRadius = source.firingRadius;
+        duration = source.duration;
+        damagePerSecond = source.damagePerSecond;
+        firingParticleEffect = source.firingParticleEffect;
     }
 
     public override string ToString()

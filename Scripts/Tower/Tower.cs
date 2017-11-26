@@ -85,7 +85,7 @@ public class Tower: MonoBehaviour
         }
         if (enemies.Count > 0)
         {
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
             bullet.GetComponent<Bullet>().SetTarget(enemies[0].transform);
         }
         else

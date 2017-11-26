@@ -7,9 +7,22 @@ using UnityEngine;
 
 public class FiringDebuff: Debuff
 {
-    public int damagePerSecond;
+    public TowerDescription.AttackType attackType;
+    public float damagePerSecond;
     public float duration;
     public float timer;
     public GameObject effect;
     public GameObject particleEffect;
+
+    public static bool operator>(FiringDebuff a, FiringDebuff b)
+    {
+        if (a.damagePerSecond * a.duration > b.damagePerSecond * b.duration) return true;
+        else return false;
+    }
+
+    public static bool operator<(FiringDebuff a, FiringDebuff b)
+    {
+        if (a.damagePerSecond * a.duration < b.damagePerSecond * b.duration) return true;
+        else return false;
+    }
 }

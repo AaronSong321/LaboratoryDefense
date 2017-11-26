@@ -78,7 +78,7 @@ class EnemyObj: MonoBehaviour
 
     void Die()
     {
-        GameObject effect = GameObject.Instantiate(explosionEffect, transform.position, transform.rotation);
+        GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
         player.ChangeMoney((int)(enemyMoney * player.perk.money_adj));
         Destroy(effect, 1.5f);
         Destroy(this.gameObject);

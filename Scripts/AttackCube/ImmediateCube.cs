@@ -11,10 +11,8 @@ public class ImmediateCube
     public TowerDescription.AttackType attackType;
     public TowerDescription.TargetType targetType;
     public GameObject bulletPrefab;
-    public int ballisticVelocity;
     public bool isTracing;
     public bool enable;
-    public GameObject target;
     public GameObject hitEffect;
 
     public void Generate(ImmediateCube source)
@@ -23,9 +21,7 @@ public class ImmediateCube
         this.attackType = source.attackType;
         this.targetType = source.targetType;
         this.bulletPrefab = source.bulletPrefab;
-        this.ballisticVelocity = source.ballisticVelocity;
         this.isTracing = source.isTracing;
-        this.target = source.target;
         this.hitEffect = source.hitEffect;
     }
 
