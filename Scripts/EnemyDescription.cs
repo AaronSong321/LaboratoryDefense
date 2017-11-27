@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.Text;
 using UnityEngine;
 
-class EnemyDescription
+public class EnemyDescription
 {
     //<definitions>
     public enum ResisType{ bullet, explosive, tesla, flame, toxic, nuclear, unknown};
@@ -142,35 +142,6 @@ class EnemyDescription
         ans.info.resistance.Add(ResisType.nuclear, Double.Parse(node.Element("resis_nuclear").Value));
 
         return ans;
-        /*
-        IEnumerable<XElement> enemyNode = from enemy in enemies where enemy.Element("name").Equals(@"<name>"+enemyName+@"</name>") select enemy;
-        foreach(XElement node in enemyNode)
-        {
-            if (ans.info == null)
-            {
-                ans.info = new EnemyInfo();
-                ans.info.name = node.Element("name").Value;
-                ans.info.hp = Int32.Parse(node.Element("health").Value);
-                ans.info.damage = Int32.Parse(node.Element("damage").Value);
-                ans.info.money = Int32.Parse(node.Element("money").Value);
-                ans.info.speed = Int32.Parse(node.Element("speed").Value);
-                ans.info.weight = Int32.Parse(node.Element("weight").Value);
-                ans.info.enemyType = EnemyDescription.getEnemyType(node.Element("type").Value);
-                ans.info.sizeType = EnemyDescription.getSizeType(node.Element("size").Value);
-
-                if (ans.info.resistance == null)
-                {
-                    ans.info.resistance = new Dictionary<ResisType, double>();
-                    ans.info.resistance.Add(ResisType.bullet, Double.Parse(node.Element("resis_bullet").Value));
-                    ans.info.resistance.Add(ResisType.explosive, Double.Parse(node.Element("resis_explo").Value));
-                    ans.info.resistance.Add(ResisType.tesla, Double.Parse(node.Element("resis_tesla").Value));
-                    ans.info.resistance.Add(ResisType.flame, Double.Parse(node.Element("resis_flame").Value));
-                    ans.info.resistance.Add(ResisType.toxic, Double.Parse(node.Element("resis_toxic").Value));
-                    ans.info.resistance.Add(ResisType.nuclear, Double.Parse(node.Element("resis_nuclear").Value));
-                }
-            }
-        }
-        */
     }
     //</create>
 	
@@ -178,15 +149,20 @@ class EnemyDescription
     {
         if (this.info == null) return "Null Reference";
         StringBuilder sb = new StringBuilder();
-        sb.Append("Name:" + this.info.name + "\n");
-        sb.Append("Health Point:" + this.info.hp + "\n");
-        sb.Append("Damage:" + this.info.damage + "\n");
-        sb.Append("Speed:" + this.info.speed + "\n");
-        sb.Append("Size:" + this.info.sizeType + "\n");
-        sb.Append("Type:" + this.info.enemyType + "\n");
-        sb.Append("Money Providing:" + this.info.money + "\n");
+        sb.Append("Name: " + this.info.name + "\n");
+        sb.Append("Health Point: " + this.info.hp + "\n");
+        sb.Append("Damage: " + this.info.damage + "\n");
+        sb.Append("Speed: " + this.info.speed + "\n");
+        sb.Append("Size: " + this.info.sizeType + "\n");
+        sb.Append("Type: " + this.info.enemyType + "\n");
+        sb.Append("Money Providing: " + this.info.money + "\n");
         sb.Append("Resistance:\n");
-        sb.Append("\tBullet:" + this.info.resistance[ResisType.bullet] + "\n");
+        sb.Append("\tBullet: " + this.info.resistance[ResisType.bullet] + "\n");
+        sb.Append("\tExplosive: " + this.info.resistance[ResisType.explosive] + "\n");
+        sb.Append("\tFlame: " + this.info.resistance[ResisType.flame] + "\n");
+        sb.Append("\tTesla: " + this.info.resistance[ResisType.tesla] + "\n");
+        sb.Append("\tToxic: " + this.info.resistance[ResisType.toxic] + "\n");
+        sb.Append("\tNuclear: " + this.info.resistance[ResisType.nuclear] + "\n");
         return sb.ToString();
     }
 	//</methods>

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,8 +9,10 @@ public class MapCube : MonoBehaviour {
     public GameObject turretGo;//保存当前cube身上的炮台
     [HideInInspector]
     public TurretData turretData;
+    //[HideInInspector]
+    //public GameObject towerGo;
     [HideInInspector]
-    public bool isUpgraded = false;
+    internal int currentLevel = 0;
 
     public GameObject buildEffect;
     private Player player;
@@ -21,46 +24,90 @@ public class MapCube : MonoBehaviour {
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        currentLevel = 0;
     }
 
     public void BuildTurret(TurretData turretData)
     {
         this.turretData = turretData;
-        isUpgraded = false;
-        turretGo = GameObject.Instantiate(turretData.turretPrefab, transform.position, Quaternion.identity);
-        GameObject effect = GameObject.Instantiate(buildEffect, transform.position, Quaternion.identity);
+        currentLevel = 1;
+        turretGo = Instantiate(turretData.turretPrefab[0], transform.position, Quaternion.identity);
+        GameObject effect = Instantiate(buildEffect, transform.position, Quaternion.identity);
         Destroy(effect, 1.5f);
     }
 
     public void UpgradeTurret()
     {
-        if(isUpgraded==true)return;
-
-        Destroy(turretGo);
-        isUpgraded = true;
-        turretGo = GameObject.Instantiate(turretData.turretUpgradedPrefab, transform.position, Quaternion.identity);
-        GameObject effect = GameObject.Instantiate(buildEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 1.5f);
+        GameObject tempEffect;
+        switch (currentLevel)
+        {
+            case 0: return;
+            case 1: Destroy(turretGo);
+                turretGo = Instantiate(turretData.turretPrefab[1], transform.position, Quaternion.identity);
+                tempEffect = Instantiate(buildEffect, transform.position, Quaternion.identity);
+                Destroy(tempEffect, 1.5f);
+                break;
+            case 2: Destroy(turretGo);
+                turretGo = Instantiate(turretData.turretPrefab[2], transform.position, Quaternion.identity);
+                tempEffect = Instantiate(buildEffect, transform.position, Quaternion.identity);
+                Destroy(tempEffect, 1.5f);
+                break;
+            case 3: return;
+        }
     }
     
     public void DestroyTurret()
     {
-        if (isUpgraded)
+        switch (currentLevel)
         {
-            player.ChangeMoney((turretData.cost + turretData.costUpgraded) / 2);
-        }
-        else
-        {
-            player.ChangeMoney(turretData.cost/2);
+            case 0: break;
+            case 1: player.ChangeMoney(turretData.cost[0] / 2); break;
+            case 2: player.ChangeMoney((turretData.cost[0] + turretData.cost[1]) / 2); break;
+            case 3: player.ChangeMoney((turretData.cost[0] + turretData.cost[1] + turretData.cost[2]) / 2); break;
         }
         Destroy(turretGo);
-        isUpgraded = false;
+        currentLevel = 0;
         turretGo = null;
-        turretData=null;
-        GameObject effect = GameObject.Instantiate(buildEffect, transform.position, Quaternion.identity);
+        turretData = null;
+        GameObject effect = Instantiate(buildEffect, transform.position, Quaternion.identity);
         Destroy(effect, 1.5f);
     }
-
+    /*
+    public void BuildTower(Tower tower)
+    {
+        this.tower = tower;
+        isUpgraded = false;
+        turretGo = Instantiate(tower.towerPrefabLv1, transform.position, Quaternion.identity);
+    }
+    public void UpgradeTower()
+    {
+        switch(tower.level)
+        {
+            case 1: Destroy(tower);
+                turretGo = Instantiate(tower.towerPrefabLv2, transform.position, Quaternion.identity);
+                break;
+            case 2: Destroy(tower);
+                turretGo = Instantiate(tower.towerPrefabLv3, transform.position, Quaternion.identity);
+                break;
+            case 3: return;
+        }
+    }
+    public void DestroyTower()
+    {
+        switch (tower.level)
+        {
+            case 1: player.ChangeMoney(tower.money);
+                break;
+            case 2: player.ChangeMoney(tower.money);
+                break;
+            case 3:player.ChangeMoney(tower.money * 2);
+                break;
+        }
+        Destroy(turretGo);
+        turretGo = null;
+        tower = null;
+    }
+    */
     void OnMouseEnter()
     {
 

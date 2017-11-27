@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
     private Player player;
     public void SetTarget(Transform _target)
     {
-        this.target = _target;
+        target = _target;
     }
 
     void Update()
@@ -34,14 +34,32 @@ public class Bullet : MonoBehaviour {
         if (dir.magnitude < distanceArriveTarget)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            target.GetComponent<Enemy>().TakeDamage(damage*player.perk.Attack_adj);
+            if (tag == "Missile")
+            {
+                float explosionRadius = 4f;
+                Collider[] collider = Physics.OverlapSphere(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
+                foreach (Collider col in collider)
+                {
+                    col.GetComponentInParent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
+                }
+            }
+            else if (tag == "Continuous")
+            {
+                float firingDuration = 4f;
+                float firingDamagePerSecond = 10000f;
+                target.GetComponent<Enemy>().TakeFiringDebuff(firingDamagePerSecond, firingDuration);
+            }
+            else
+            {
+                target.GetComponent<Enemy>().TakeDamage(damage * player.perk.Attack_adj);
+            }
             Die();   
         }
     }
 
     void Die()
     {
-        GameObject effect = GameObject.Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+        GameObject effect = Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
         Destroy(effect, 1);
         Destroy(this.gameObject);
     }

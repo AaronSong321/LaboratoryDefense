@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-
     public GameObject endUI;
     public Text endMessage;
 
@@ -35,6 +34,6 @@ public class GameManager : MonoBehaviour {
     }
     public void OnButtonMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Welcome");
     }
 }

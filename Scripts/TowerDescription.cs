@@ -3,7 +3,7 @@ using System.Xml;
 using System.Collections.Generic;
 using UnityEngine;
 
-class TowerDescription
+public class TowerDescription
 {
     public enum AttackType { bullet, explosive, tesla, flame, toxic, nuclear, unknown};
     public enum TargetType { ground, air, ground_all, ground_air, unknown};
@@ -41,16 +41,11 @@ class TowerDescription
     }
 
     public LevelInfo[] levels;
-    
-
 
     public static void ReadFromXml(string Tower, string filename)
     {
+        /*        
         string path = System.Environment.CurrentDirectory + @"\Files\towers\" + filename;
-
-
-
-        /*
         XmlDocument turrentDocument = new XmlDocument();
         XmlReaderSettings settings = new XmlReaderSettings();
         settings.IgnoreComments = true;

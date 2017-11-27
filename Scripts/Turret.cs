@@ -3,38 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour {
+    public enum AttackType { bullet, explosive, tesla, flame, toxic, nuclear, unknown };
+    public enum TargetType { ground, air, ground_all, ground_air, unknown };
 
-    private List<GameObject> enemys = new List<GameObject>();
+    public float attackRateTime = 1;
+
+    public GameObject bulletPrefab;
+    public Transform firePosition;
+    public Transform head;
+
     private Player player;
+    private List<GameObject> enemies = new List<GameObject>();
+    private float timer = 0;
+
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Enemy")
         {
-            enemys.Add(col.gameObject);
+            enemies.Add(col.gameObject);
         }
     }
     void OnTriggerExit(Collider col)
     {
         if (col.tag == "Enemy")
         {
-            enemys.Remove(col.gameObject);
+            enemies.Remove(col.gameObject);
         }
     }
-
-    public float attackRateTime = 1; //多少秒攻击一次
-    private float timer = 0;
-
-    public GameObject bulletPrefab;//子弹
-    public Transform firePosition;
-    public Transform head;
-
-    public bool useLaser = false;
-
-    public float damageRate = 70;
-
-    public LineRenderer laserRenderer;
-
-    public GameObject laserEffect;
 
     void Start()
     {
@@ -42,60 +37,32 @@ public class Turret : MonoBehaviour {
         attackRateTime *= player.perk.AttackRateTime_adj;
         timer = attackRateTime;
     }
-
     void Update()
     {
-        if (enemys.Count > 0 && enemys[0] != null)
+        if (enemies.Count > 0 && enemies[0] != null)
         {
-            Vector3 targetPosition = enemys[0].transform.position;
+            Vector3 targetPosition = enemies[0].transform.position;
             targetPosition.y = head.position.y;
             head.LookAt(targetPosition);
         }
-        if (useLaser == false)
+        timer += Time.deltaTime;
+        if (enemies.Count > 0 && timer >= attackRateTime)
         {
-            timer += Time.deltaTime;
-            if (enemys.Count > 0 && timer >= attackRateTime)
-            {
-                timer = 0;
-                Attack();
-            }
-        }
-        else if(enemys.Count>0)
-        {
-            if (laserRenderer.enabled == false)
-                laserRenderer.enabled = true;
-            laserEffect.SetActive(true);
-            if (enemys[0] == null)
-            {
-                UpdateEnemys();
-            }
-            if (enemys.Count > 0)
-            {
-                laserRenderer.SetPositions(new Vector3[]{firePosition.position, enemys[0].transform.position});
-                enemys[0].GetComponent<Enemy>().TakeDamage(damageRate *Time.deltaTime*player.perk.Attack_adj);
-                laserEffect.transform.position = enemys[0].transform.position;
-                Vector3 pos = transform.position;
-                pos.y = enemys[0].transform.position.y;
-                laserEffect.transform.LookAt(pos);
-            }
-        }
-        else
-        {
-            laserEffect.SetActive(false);
-            laserRenderer.enabled = false;
+            timer = 0;
+            Attack();
         }
     }
 
     void Attack()
     {
-        if (enemys[0] == null)
+        if (enemies[0] == null)
         {
-            UpdateEnemys();
+            UpdateEnemies();
         }
-        if (enemys.Count > 0)
+        if (enemies.Count > 0)
         {
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
-            bullet.GetComponent<Bullet>().SetTarget(enemys[0].transform);
+            GameObject bullet = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
+            bullet.GetComponent<BulletObj>().SetTarget(enemies[0].transform);
         }
         else
         {
@@ -103,13 +70,13 @@ public class Turret : MonoBehaviour {
         }
     }
 
-    void UpdateEnemys()
+    void UpdateEnemies()
     {
         //enemys.RemoveAll(null);
         List<int> emptyIndex = new List<int>();
-        for (int index = 0; index < enemys.Count; index++)
+        for (int index = 0; index < enemies.Count; index++)
         {
-            if (enemys[index] == null)
+            if (enemies[index] == null)
             {
                 emptyIndex.Add(index);
             }
@@ -117,7 +84,27 @@ public class Turret : MonoBehaviour {
 
         for (int i = 0; i < emptyIndex.Count; i++)
         {
-            enemys.RemoveAt(emptyIndex[i]-i);
+            enemies.RemoveAt(emptyIndex[i]-i);
         }
+    }
+
+    public static AttackType GetAttackType(string s)
+    {
+        if (s.Equals("bullet")) return AttackType.bullet;
+        if (s.Equals("explosive")) return AttackType.explosive;
+        if (s.Equals("tesls")) return AttackType.tesla;
+        if (s.Equals("flame")) return AttackType.flame;
+        if (s.Equals("toxic")) return AttackType.toxic;
+        if (s.Equals("nuclear")) return AttackType.nuclear;
+        return AttackType.unknown;
+    }
+
+    public static TargetType GetTargetType(string s)
+    {
+        if (s.Equals("ground")) return TargetType.ground;
+        if (s.Equals("air")) return TargetType.air;
+        if (s.Equals("ground_all")) return TargetType.air;
+        if (s.Equals("ground_air")) return TargetType.ground_air;
+        return TargetType.unknown;
     }
 }
