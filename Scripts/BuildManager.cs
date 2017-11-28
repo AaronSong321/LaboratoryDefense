@@ -12,12 +12,12 @@ public class BuildManager : MonoBehaviour {
     public TurretData SPTurretData;
     private TurretData selectedTurretData;
 
-    ToggleGroup TGTurrets;
-    Toggle TMG;
-    Toggle TST;
-    Toggle TPB;
-    Toggle TCH;
-    Toggle TSP;
+    GameObject TGTurrets;
+    GameObject TMG;
+    GameObject TST;
+    GameObject TPB;
+    GameObject TCH;
+    GameObject TSP;
 
     private MapCube selectedMapCube;
     private Player player;
@@ -30,19 +30,19 @@ public class BuildManager : MonoBehaviour {
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        TGTurrets = GameObject.Find("Canvas/TurretSwitch").GetComponent<ToggleGroup>();
-        TMG = GameObject.Find("Canvas/TurretSwitch/TMG").GetComponent<Toggle>();
-        TST = GameObject.Find("Canvas/TurretSwitch/TST").GetComponent<Toggle>();
-        TPB = GameObject.Find("Canvas/TurretSwitch/TPB").GetComponent<Toggle>();
-        TCH = GameObject.Find("Canvas/TurretSwitch/TCH").GetComponent<Toggle>();
-        TSP = GameObject.Find("Canvas/TurretSwitch/TSP").GetComponent<Toggle>();
+        TGTurrets = GameObject.Find("Canvas/TurretSwitch");
+        TMG = GameObject.Find("Canvas/TurretSwitch/TMG");
+        TST = GameObject.Find("Canvas/TurretSwitch/TST");
+        TPB = GameObject.Find("Canvas/TurretSwitch/TPB");
+        TCH = GameObject.Find("Canvas/TurretSwitch/TCH");
+        TSP = GameObject.Find("Canvas/TurretSwitch/TSP");
         //XWave = GameObject.Find("Canvas/XWave").GetComponent<Text>();
     }
     void Start()
     {
         upgradeCanvasAnimator = upgradeCanvas.GetComponent<Animator>();
 
-        TGTurrets.SetAllTogglesOff();
+        TGTurrets.GetComponent<ToggleGroup>().SetAllTogglesOff();
     }
 
     void Update()
