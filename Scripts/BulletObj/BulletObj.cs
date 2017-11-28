@@ -14,16 +14,18 @@ public class BulletObj : MonoBehaviour
     private Transform target;
     public float lowestDistance;
     public float speed;
-    public Tower fatherTower;
+    public int ballisticVelocity;
+
     public ImmediateCube ic;
     public ExplosionCube ec;
     public ExplosionFiringCube efc;
     public FiringCube fc;
     public SlowCube sc;
     public StunCube tc;
-    public int ballisticVelocity;
 
     public Player player;
+    public TowerDescription.AttackType mainDamageType;
+    public Turret.TurretName fatherTower;
 
     public void SetTarget(Transform target)
     {

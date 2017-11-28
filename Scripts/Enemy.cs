@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,16 +27,30 @@ public class Enemy : MonoBehaviour
     public GameObject explosionEffect;
     private Slider hpSlider;
 
-    private float totalHp;
-    private float currentSpeed;
-    private bool stunned;
-    public FiringDebuff firingDebuff;
-    public SlowDebuff slowDebuff;
-    public StunDebuff stunDebuff;
+    float totalHp;
+    float currentSpeed;
+    bool stunned;
+    FiringDebuff firingDebuff;
+    SlowDebuff slowDebuff;
+    StunDebuff stunDebuff;
+
+    EnemySpawner es;
+    public class EnemyKilledEventArgs: EventArgs
+    {
+        public readonly SizeType sizeType;
+        public EnemyKilledEventArgs(SizeType thisSizeType)
+        {
+            sizeType = thisSizeType;
+        }
+    }
+    public delegate void EnemyKilledEventHandler(object sender, EnemyKilledEventArgs e);
+    public event EnemyKilledEventHandler EnemyKilledEvent;
+    
     // Use this for initialization
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        es = GameObject.Find("GameManager").GetComponent<EnemySpawner>();
     }
 	void Start () {
         totalHp = hp;
@@ -48,6 +63,8 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed * player.perk.mobspeed_adj;
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
+
+        es.SubscribeEnemyKilledEvent(this);
     }
 	
 	// Update is called once per frame
@@ -77,6 +94,7 @@ public class Enemy : MonoBehaviour
     void ReachDestination()
     {
         player.Playerhp -= damage;
+        EnemyKilledEvent(this, new EnemyKilledEventArgs(sizeType));
         Destroy(gameObject);
     }
     
@@ -141,7 +159,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeStunDebuff(StunCube tc)
     {
-        if (tc.possibility > Random.value)
+        if (tc.possibility > UnityEngine.Random.value)
         {
             StunDebuff newStunDebuff = new StunDebuff
             {
@@ -170,11 +188,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        EnemySpawner.CountEnemyAlive--;
-    }
-
     public void TakeDamage(float damage)
     {
         if (hp <= 0) return;
@@ -201,6 +214,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
+        EnemyKilledEvent(this, new EnemyKilledEventArgs(sizeType));
         player.ChangeMoney((int)(enemyMoney*player.perk.money_adj));
         Destroy(effect, 1.5f);
         Destroy(gameObject);

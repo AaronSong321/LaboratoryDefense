@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour {
-    public enum AttackType { bullet, explosive, tesla, flame, toxic, nuclear, unknown };
-    public enum TargetType { ground, air, ground_all, ground_air, unknown };
+    public enum AttackType { bullet, explosive, tesla, flame, toxic, nuclear, unknown }
+    public enum TargetType { ground, air, ground_all, ground_air, unknown }
+    public enum TurretName { MG, CH, PB, SP, ST, PM, RL, PS, TF, TD, FT, MC, MW}
 
     public float attackRateTime = 1;
 

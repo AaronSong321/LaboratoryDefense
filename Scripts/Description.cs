@@ -53,7 +53,7 @@ public class Description
             case Language.Chinese: answer = "属性：\n" +
                 "    哨兵枪，机枪碉堡伤害增加：每级1%\n" +
                 "    狙击塔，猎人塔伤害增加：每级0.6%\n" +
-                "    狙击塔，猎人塔攻击速度增肌：每级0.1\n" +
+                "    狙击塔，猎人塔攻击速度增加：每级0.1\n" +
                 "    基础金钱增加：每级1.2%\n" +
                 "\n" +
                 "技能：\n" +
@@ -234,6 +234,38 @@ public class Description
                 "    等级50：\n" +
                 "        电火：微波塔造成电磁伤害。这样的微波塔还会享受这个职业的属性加成\n" +
                 "        双倍伤害：当电击塔，闪电塔，狙击塔，猎人塔造成电磁型眩晕时，会增加一个等用于伤害来源攻击力的额外伤害。\n";
+                break;
+        }
+        return answer;
+    }
+
+    public static String BaseballCoach(Language l)
+    {
+        String answer = "";
+        switch(l)
+        {
+            case Language.English:
+            case Language.Chinese: answer = "名字：棒球教练\n" +
+                    "    属性：\n" +
+                    "        任意塔攻击速度增加：每级0.4%\n" +
+                    "        哨兵枪，榴弹发射器，电击塔攻击力增加：每级0.4%\n" +
+                    "    \n" +
+                    "    技能：\n" +
+                    "    等级10：\n" +
+                    "        欣欣向荣：增加25%的金钱和经验获取速度。\n" +
+                    "        照单全收：出售防御塔时返还全部造塔金额。\n" +
+                    "    等级20：\n" +
+                    "        静电场：每次闪电塔攻击时，都会对其射程内所有敌人造成其当前生命值2%的额外伤害，伤害类型为电磁。\n" +
+                    "        基地护盾：为基地生成一个能抵挡6点伤害的护盾。这个护盾每波开始时刷新。\n" +
+                    "    等级30：\n" +
+                    "        孤注一掷：当你的防御塔数量小于等于6时，提升所有塔攻击力20%。如果小于等于3，这个数值提升到40%。\n" +
+                    "        双管齐下：允许哨兵枪，机枪碉堡攻击一个额外的随机目标。\n" +
+                    "    等级40：\n" +
+                    "        针锋相对：如果你当前放置的所有塔主要伤害类型均相同，则无视所有敌人对这种伤害类型的抗性。\n" +
+                    "        \n" +
+                    "    等级50：\n" +
+                    "        终极奥义：降低狙击塔，火箭弹，闪电塔建造和升级价格35%。\n" +
+                    "        毁天灭地：所有防御塔造成的伤害类型均为核能。\n";
                 break;
         }
         return answer;
@@ -431,7 +463,7 @@ public class Description
                  "速度：100\n" +
                  "攻击力：2\n" +
                  "类型：地面单位\n" +
-                 "金钱奖励：7\n" +
+                 "金钱奖励：18\n" +
                  "伤害抗性：\n" +
                  "    子弹抗性：0.7\n" +
                  "    爆炸抗性：0.7\n" +
@@ -542,7 +574,7 @@ public class Description
                  "speed: 110\n" +
                  "damage: 6\n" +
                  "type: ground\n" +
-                 "money bonus: 65\n" +
+                 "money bonus: 55\n" +
                  "resistance\n" +
                  "    bullet: 1.3\n" +
                  "    explosive: 0.7\n" +
@@ -557,7 +589,7 @@ public class Description
                  "速度：110\n" +
                  "攻击力：6\n" +
                  "类型：地面单位\n" +
-                 "金钱奖励：65\n" +
+                 "金钱奖励：55\n" +
                  "伤害抗性：\n" +
                  "    子弹抗性：1.3\n" +
                  "    爆炸抗性：0.7\n" +
@@ -584,7 +616,7 @@ public class Description
                  "speed: 110\n" +
                  "damage: 1\n" +
                  "type: ground\n" +
-                 "money bonus: 7\n" +
+                 "money bonus: 80\n" +
                  "resistance\n" +
                  "    bullet: 0.6\n" +
                  "    explosive: 1.4\n" +
@@ -599,7 +631,7 @@ public class Description
                  "速度：110\n" +
                  "攻击力：8\n" +
                  "类型：地面单位\n" +
-                 "金钱奖励：7\n" +
+                 "金钱奖励：80\n" +
                  "伤害抗性：\n" +
                  "    子弹抗性：0.6\n" +
                  "    爆炸抗性：1.4\n" +
@@ -859,7 +891,7 @@ public class Description
                      "Explosion Radius: 45\n" +
                      "Firing Rate: 56/70/84\n" +
                      "Range: 0-550\n" +
-                     "Cost: 180-140/160\n" +
+                     "Cost: 180/140/160\n" +
                      "Target Type: air\n";
                 break;
             case Language.Chinese:
@@ -871,7 +903,7 @@ public class Description
                      "爆炸范围：45\n" +
                      "攻击速度：56/70/84\n" +
                      "射程：0-550\n" +
-                     "造价：180-140/160\n" +
+                     "造价：180/140/160\n" +
                      "目标类型：空中单位\n";
                 break;
             default:
@@ -961,18 +993,18 @@ public class Description
                      "Stun Duration: 0.7" +
                      "Range: 0-240\n" +
                      "Cost: 240/210/260\n" +
-                     "Target Type: ground\n";
+                     "Target Type: ground or air\n";
                 break;
             case Language.Chinese:
                 answer = "名字：闪电塔\n" +
-                     "伤害：80/130/160\n" +
+                     "伤害：180/300/450\n" +
                      "攻击类型：电磁\n" +
                      "眩晕几率：0.14/0.16/0.18\n" +
                      "眩晕时间：0.7\n" +
                      "攻击速度：77\n" +
                      "射程：0-240\n" +
-                     "造价：135/155/165\n" +
-                     "目标类型：地面单位\n";
+                     "造价：240/210/260\n" +
+                     "目标类型：地面单位，空中单位\n";
                 break;
             default:
                 answer = "Unknown language pack";
