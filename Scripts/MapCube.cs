@@ -4,25 +4,42 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MapCube : MonoBehaviour {
+public class MapCube : MonoBehaviour
+{
     [HideInInspector]
-    public GameObject turretGo;//保存当前cube身上的炮台
+    public GameObject turretGo;
     [HideInInspector]
     public TurretData turretData;
-    //[HideInInspector]
-    //public GameObject towerGo;
     [HideInInspector]
     internal int currentLevel = 0;
+
+    private GameManager gameManager;
 
     public GameObject buildEffect;
     private Player player;
     private Renderer renderer;
+    private Color color;
+
+    public class ReturnMoneyEventArgs: EventArgs
+    {
+        public int moneyReturn;
+        public ReturnMoneyEventArgs(int money)
+        {
+            moneyReturn = money;
+        }
+    }
+    public delegate void ReturnMoneyEventHandler(object sender, ReturnMoneyEventArgs e);
+    public event ReturnMoneyEventHandler ReturnMoneyEvent;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
+        gameManager.SubscribeReturnMoney(this);
+
         renderer = GetComponent<Renderer>();
         currentLevel = 0;
     }
@@ -46,11 +63,13 @@ public class MapCube : MonoBehaviour {
                 turretGo = Instantiate(turretData.turretPrefab[1], transform.position, Quaternion.identity);
                 tempEffect = Instantiate(buildEffect, transform.position, Quaternion.identity);
                 Destroy(tempEffect, 1.5f);
+                currentLevel = 2;
                 break;
             case 2: Destroy(turretGo);
                 turretGo = Instantiate(turretData.turretPrefab[2], transform.position, Quaternion.identity);
                 tempEffect = Instantiate(buildEffect, transform.position, Quaternion.identity);
                 Destroy(tempEffect, 1.5f);
+                currentLevel = 3;
                 break;
             case 3: return;
         }
@@ -61,9 +80,9 @@ public class MapCube : MonoBehaviour {
         switch (currentLevel)
         {
             case 0: break;
-            case 1: player.ChangeMoney(turretData.cost[0] / 2); break;
-            case 2: player.ChangeMoney((turretData.cost[0] + turretData.cost[1]) / 2); break;
-            case 3: player.ChangeMoney((turretData.cost[0] + turretData.cost[1] + turretData.cost[2]) / 2); break;
+            case 1: ReturnMoneyEvent(this, new ReturnMoneyEventArgs(turretData.cost[0] / 2)); break;
+            case 2: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.cost[0] + turretData.cost[1]) / 2)); break;
+            case 3: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.cost[0] + turretData.cost[1] + turretData.cost[2]) / 2)); break;
         }
         Destroy(turretGo);
         currentLevel = 0;
@@ -72,52 +91,20 @@ public class MapCube : MonoBehaviour {
         GameObject effect = Instantiate(buildEffect, transform.position, Quaternion.identity);
         Destroy(effect, 1.5f);
     }
-    /*
-    public void BuildTower(Tower tower)
-    {
-        this.tower = tower;
-        isUpgraded = false;
-        turretGo = Instantiate(tower.towerPrefabLv1, transform.position, Quaternion.identity);
-    }
-    public void UpgradeTower()
-    {
-        switch(tower.level)
-        {
-            case 1: Destroy(tower);
-                turretGo = Instantiate(tower.towerPrefabLv2, transform.position, Quaternion.identity);
-                break;
-            case 2: Destroy(tower);
-                turretGo = Instantiate(tower.towerPrefabLv3, transform.position, Quaternion.identity);
-                break;
-            case 3: return;
-        }
-    }
-    public void DestroyTower()
-    {
-        switch (tower.level)
-        {
-            case 1: player.ChangeMoney(tower.money);
-                break;
-            case 2: player.ChangeMoney(tower.money);
-                break;
-            case 3:player.ChangeMoney(tower.money * 2);
-                break;
-        }
-        Destroy(turretGo);
-        turretGo = null;
-        tower = null;
-    }
-    */
+    
     void OnMouseEnter()
     {
-
         if (turretGo == null && EventSystem.current.IsPointerOverGameObject()==false)
         {
-            renderer.material.color = Color.red;
+            color = Color.green;
+            color.a /= 4;
+            renderer.material.color = color;
         }
     }
     void OnMouseExit()
     {
-        renderer.material.color = Color.white;
+        color = Color.white;
+        color.a /= 4;
+        renderer.material.color = color;
     }
 }

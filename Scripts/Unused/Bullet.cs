@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour {
             {
                 float firingDuration = 4f;
                 float firingDamagePerSecond = 10000f;
-                target.GetComponent<Enemy>().TakeFiringDebuff(firingDamagePerSecond, firingDuration);
+                //target.GetComponent<Enemy>().TakeFiringDebuff(firingDamagePerSecond, firingDuration);
             }
             else
             {

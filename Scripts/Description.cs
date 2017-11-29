@@ -920,20 +920,20 @@ public class Description
         {
             case Language.English:
                 answer = "Name: Prisim\n" +
-                     "Damage: 80/130/160\n" +
+                     "Damage: 80/130/180\n" +
                      "Attack Type: tesla\n" +
                      "Firing Rate: 77\n" +
                      "Range: 0-240\n" +
-                     "Cost: 135/155/165\n" +
+                     "Cost: 135/90/90\n" +
                      "Target Type: ground\n";
                 break;
             case Language.Chinese:
                 answer = "名字：电击塔\n" +
-                     "伤害：80/130/160\n" +
+                     "伤害：80/130/180\n" +
                      "攻击类型：电磁\n" +
                      "攻击速度：77\n" +
                      "射程：0-240\n" +
-                     "造价：135/155/165\n" +
+                     "造价：135/90/90\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
@@ -991,7 +991,7 @@ public class Description
                      "Firing Rate: 77\n" +
                      "Stun Possibility: 0.14/0.16/0.18\n" +
                      "Stun Duration: 0.7" +
-                     "Range: 0-240\n" +
+                     "Range: 0-400\n" +
                      "Cost: 240/210/260\n" +
                      "Target Type: ground or air\n";
                 break;
@@ -1002,7 +1002,7 @@ public class Description
                      "眩晕几率：0.14/0.16/0.18\n" +
                      "眩晕时间：0.7\n" +
                      "攻击速度：77\n" +
-                     "射程：0-240\n" +
+                     "射程：0-400\n" +
                      "造价：240/210/260\n" +
                      "目标类型：地面单位，空中单位\n";
                 break;

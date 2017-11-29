@@ -63,16 +63,16 @@ public class BulletObj : MonoBehaviour
             if (fc != null && fc.enable)
             {
                 target.GetComponent<Enemy>().TakeDamage(fc.damage, fc.attackType);
-                target.GetComponent<Enemy>().TakeFiringDebuff(fc.damagePerSecond, fc.duration);
+                target.GetComponent<Enemy>().TakeFiringDebuff(fc);
             }
             if (sc != null && sc.enable)
             {
-                target.GetComponent<Enemy>().TakeDamage(sc.damage);
+                target.GetComponent<Enemy>().TakeDamage(sc.damage, sc.attackType);
                 target.GetComponent<Enemy>().TakeSlowDebuff(sc);
             }
             if (tc != null && tc.enable)
             {
-                target.GetComponent<Enemy>().TakeDamage(tc.damage);
+                target.GetComponent<Enemy>().TakeDamage(tc.damage, tc.attackType);
                 target.GetComponent<Enemy>().TakeStunDebuff(tc);
             }
             Die();
