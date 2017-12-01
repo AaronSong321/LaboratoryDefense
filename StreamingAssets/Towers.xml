@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Towers>
+
+<Tower name = "EW">
+	<lv1 cost = "25" attackSpeed = "0">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "25" attackSpeed = "0">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "25" attackSpeed = "0">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "MG">
+	<lv1 cost = "100" attackSpeed = "140" minRange = "0" maxRange = "220">
+		<ic enable = "true" damage = "35" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "80" attackSpeed = "210" minRange = "0" maxRange = "220">
+		<ic enable = "true" damage = "45" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "110" attackSpeed = "260" minRange = "0" maxRange = "220">
+		<ic enable = "true" damage = "52" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "CH">
+	<lv1 cost = "210" attackSpeed = "70" minRange = "100" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "110" possibility = "0.07" duration = "0.5" attackType = "bullet" targetType = "ground_air"/>
+	</lv1>
+	<lv2 cost = "190" attackSpeed = "70" minRange = "100" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "220" possibility = "0.07" duration = "0.7" attackType = "bullet" targetType = "ground_air"/>
+	</lv2>	
+	<lv3 cost = "190" attackSpeed = "70" minRange = "100" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "330" possibility = "0.07" duration = "0.9" attackType = "bullet" targetType = "ground_air"/>
+	</lv3>
+</Tower>
+
+<Tower name = "PB">
+	<lv1 cost = "260" attackSpeed = "280" minRange = "0" maxRange = "260">
+		<ic enable = "true" damage = "50" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "280" attackSpeed = "330" minRange = "0" maxRange = "260">
+		<ic enable = "true" damage = "85" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "300" attackSpeed = "380" minRange = "0" maxRange = "260">
+		<ic enable = "true" damage = "115" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "SP">
+	<lv1 cost = "500" attackSpeed = "50" minRange = "0" maxRange = "550">
+		<ic enable = "true" damage = "300" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "400" attackSpeed = "50" minRange = "0" maxRange = "550">
+		<ic enable = "true" damage = "520" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "400" attackSpeed = "50" minRange = "0" maxRange = "550">
+		<ic enable = "true" damage = "740" attackType = "bullet" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "ST">
+	<lv1 cost = "180" attackSpeed = "84" minRange = "150" maxRange = "350">
+		<ic enable = "false"/>		
+		<ec enable = "true" damage = "70" radius = "80" attackType = "explosive" targetType = "ground"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "160" attackSpeed = "98" minRange = "150" maxRange = "380">
+		<ic enable = "false"/>		
+		<ec enable = "true" damage = "105" radius = "90" attackType = "explosive" targetType = "ground"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "190" attackSpeed = "108" minRange = "150" maxRange = "410">
+		<ic enable = "false"/>		
+		<ec enable = "true" damage = "130" radius = "100" attackType = "explosive" targetType = "ground"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "RL">
+	<lv1 cost = "450" attackSpeed = "70" minRange = "100" maxRange = "450">
+		<ic enable = "true" damage = "100" attackType = "bullet" targetType = "ground_air"/>		
+		<ec enable = "true" damage = "150" radius = "50" attackType = "explosive" targetType = "ground_air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "400" attackSpeed = "70" minRange = "100" maxRange = "450">
+		<ic enable = "true" damage = "140" attackType = "bullet" targetType = "ground_air"/>		
+		<ec enable = "true" damage = "270" radius = "55" attackType = "explosive" targetType = "ground_air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "400" attackSpeed = "70" minRange = "100" maxRange = "450">
+		<ic enable = "true" damage = "180" attackType = "bullet" targetType = "ground_air"/>		
+		<ec enable = "true" damage = "400" radius = "60" attackType = "explosive" targetType = "ground_air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "PM">
+	<lv1 cost = "180" attackSpeed = "56" minRange = "100" maxRange = "400">
+		<ic enable = "true" damage = "60" attackType = "bullet" targetType = "air"/>		
+		<ec enable = "true" damage = "120" radius = "50" attackType = "explosive" targetType = "air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "140" attackSpeed = "70" minRange = "100" maxRange = "400">
+		<ic enable = "true" damage = "120" attackType = "bullet" targetType = "air"/>		
+		<ec enable = "true" damage = "150" radius = "55" attackType = "explosive" targetType = "air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "160" attackSpeed = "84" minRange = "100" maxRange = "400">
+		<ic enable = "true" damage = "180" attackType = "bullet" targetType = "air"/>		
+		<ec enable = "true" damage = "200" radius = "60" attackType = "explosive" targetType = "air"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "PS">
+	<lv1 cost = "135" attackSpeed = "77" minRange = "0" maxRange = "240">
+		<ic enable = "true" damage = "80" attackType = "tesla" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "90" attackSpeed = "77" minRange = "0" maxRange = "240">
+		<ic enable = "true" damage = "130" attackType = "tesla" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>	
+	<lv3 cost = "90" attackSpeed = "77" minRange = "0" maxRange = "240">
+		<ic enable = "true" damage = "180" attackType = "tesla" targetType = "ground"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "TF">
+	<lv1 cost = "140" attackSpeed = "70" minRange = "0" maxRange = "240">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "true" damage = "35" effect = "0.8" duration = "3" attackType = "tesla" targetType = "ground_all"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "170" attackSpeed = "70" minRange = "0" maxRange = "260">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "true" damage = "15" effect = "0.6" duration = "3" attackType = "tesla" targetType = "ground_all"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "200" attackSpeed = "70" minRange = "0" maxRange = "280">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "true" damage = "0" effect = "0.45" duration = "3" attackType = "tesla" targetType = "ground_all"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "TD">
+	<lv1 cost = "240" attackSpeed = "77" minRange = "0" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "180" possibility = "0.14" duration = "0.7" attackType = "tesla" targetType = "ground_air"/>
+	</lv1>
+	<lv2 cost = "210" attackSpeed = "77" minRange = "0" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "300" possibility = "0.16" duration = "0.7" attackType = "tesla" targetType = "ground_air"/>
+	</lv2>	
+	<lv3 cost = "260" attackSpeed = "77" minRange = "0" maxRange = "400">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "false"/>
+		<sc enable = "false"/>
+		<tc enable = "true" damage = "450" possibility = "0.18" duration = "0.7" attackType = "tesla" targetType = "ground_air"/>
+	</lv3>
+</Tower>
+
+<Tower name = "FT">
+	<lv1 cost = "135" attackSpeed = "300" minRange = "0" maxRange = "190">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "30" duration = "2" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "85" attackSpeed = "300" minRange = "0" maxRange = "190">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "40" duration = "2" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "75" attackSpeed = "300" minRange = "0" maxRange = "190">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "46" duration = "2" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "MC">
+	<lv1 cost = "200" attackSpeed = "300" minRange = "0" maxRange = "320">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "80" duration = "5" attackType = "flame" targetType = "ground"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "130" attackSpeed = "300" minRange = "0" maxRange = "320">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "85" duration = "7" attackType = "flame" targetType = "ground"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "100" attackSpeed = "300" minRange = "0" maxRange = "320">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "85" duration = "10" attackType = "flame" targetType = "ground"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+<Tower name = "MW">
+	<lv1 cost = "380" attackSpeed = "300" minRange = "0" maxRange = "360">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "18" duration = "5" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv1>
+	<lv2 cost = "420" attackSpeed = "300" minRange = "0" maxRange = "460">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "20" duration = "5" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv2>
+	<lv3 cost = "420" attackSpeed = "300" minRange = "0" maxRange = "540">
+		<ic enable = "false"/>
+		<ec enable = "false"/>
+		<fc enable = "true" damage = "0" damagePerSecond = "22" duration = "5" attackType = "flame" targetType = "ground_all"/>
+		<sc enable = "false"/>
+		<tc enable = "false"/>
+	</lv3>
+</Tower>
+
+</Towers>

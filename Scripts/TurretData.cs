@@ -6,12 +6,5 @@ using UnityEngine;
 public class TurretData
 {
     public GameObject[] turretPrefab;
-    public int[] cost;
-    public TurretType type;
-}
-public enum TurretType
-{
-    LaserTurret,
-    MissileTurret,
-    StandardTurret
+    internal int[] cost;
 }

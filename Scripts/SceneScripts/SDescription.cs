@@ -55,6 +55,8 @@ public class SDescription : MonoBehaviour {
     Toggle toggle_TS;
     Text text_Perk;
 
+    OutgameSettings outgameSettings;
+
     void Awake()
     {
         canvasGroup_Turrent = GameObject.Find("Canvas_Main/CanvasGroup_Turrent").GetComponent<CanvasGroup>();
@@ -87,7 +89,8 @@ public class SDescription : MonoBehaviour {
         toggle_MolotovCocktail = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_MolotovCocktail").GetComponent<Toggle>();
         toggle_Micro = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/ToggleGroup_Turrent/Toggle_Micro").GetComponent<Toggle>();
         text_Tower = GameObject.Find("Canvas_Main/CanvasGroup_Turrent/Scroll View/Viewport/Content").GetComponent<Text>();
-        text_Tower.text = Description.MachineGun(SWelcome.languageChosen);
+        outgameSettings = OutgameSettings.LoadOutgameSettings();
+        text_Tower.text = Description.MachineGun(outgameSettings.language);
         //</toggleGroup_Turrent>
 
         //<toggleGroup_Monster>
@@ -102,7 +105,7 @@ public class SDescription : MonoBehaviour {
         toggle_Tank = GameObject.Find("Canvas_Main/CanvasGroup_Monster/ToggleGroup_Monster/Toggle_Tank").GetComponent<Toggle>();
         toggle_Dragon = GameObject.Find("Canvas_Main/CanvasGroup_Monster/ToggleGroup_Monster/Toggle_Dragon").GetComponent<Toggle>();
         text_Monster = GameObject.Find("Canvas_Main/CanvasGroup_Monster/Scroll View/Viewport/Content").GetComponent<Text>();
-        text_Monster.text = Description.Elfin(SWelcome.languageChosen);
+        text_Monster.text = Description.Elfin(outgameSettings.language);
         //</toggleGroup_Monster>
 
         toggle_MM = GameObject.Find("Canvas_Main/CanvasGroup_Perk/ToggleGroup_Perk/Toggle_MachineMastery").GetComponent<Toggle>();
@@ -110,7 +113,7 @@ public class SDescription : MonoBehaviour {
         toggle_FR = GameObject.Find("Canvas_Main/CanvasGroup_Perk/ToggleGroup_Perk/Toggle_FireRanger").GetComponent<Toggle>();
         toggle_TS = GameObject.Find("Canvas_Main/CanvasGroup_Perk/ToggleGroup_Perk/Toggle_ThunderSpirit").GetComponent<Toggle>();
         text_Perk = GameObject.Find("Canvas_Main/CanvasGroup_Perk/Scroll View/Viewport/Content").GetComponent<Text>();
-        text_Perk.text = Description.MachineMastery(SWelcome.languageChosen);
+        text_Perk.text = Description.MachineMastery(outgameSettings.language);
     }
 
     void Start()
@@ -164,40 +167,40 @@ public class SDescription : MonoBehaviour {
 
     public void OnClick_AnyMonster()
     {
-        if (toggle_Elfin.isOn) text_Monster.text = Description.Elfin(SWelcome.languageChosen);
-        if (toggle_Crawler.isOn) text_Monster.text = Description.Crawler(SWelcome.languageChosen);
-        if (toggle_Zombie.isOn) text_Monster.text = Description.Zombie(SWelcome.languageChosen);
-        if (toggle_Thirsty.isOn) text_Monster.text = Description.Thirsty(SWelcome.languageChosen);
-        if (toggle_Butcher.isOn) text_Monster.text = Description.Butcher(SWelcome.languageChosen);
-        if (toggle_Unicorn.isOn) text_Monster.text = Description.Unicron(SWelcome.languageChosen);
-        if (toggle_Desolator.isOn) text_Monster.text = Description.Desolator(SWelcome.languageChosen);
-        if (toggle_Manmoth.isOn) text_Monster.text = Description.Manmoth(SWelcome.languageChosen);
-        if (toggle_Tank.isOn) text_Monster.text = Description.Tank(SWelcome.languageChosen);
-        if (toggle_Dragon.isOn) text_Monster.text = Description.Dragon(SWelcome.languageChosen);
+        if (toggle_Elfin.isOn) text_Monster.text = Description.Elfin(outgameSettings.language);
+        if (toggle_Crawler.isOn) text_Monster.text = Description.Crawler(outgameSettings.language);
+        if (toggle_Zombie.isOn) text_Monster.text = Description.Zombie(outgameSettings.language);
+        if (toggle_Thirsty.isOn) text_Monster.text = Description.Thirsty(outgameSettings.language);
+        if (toggle_Butcher.isOn) text_Monster.text = Description.Butcher(outgameSettings.language);
+        if (toggle_Unicorn.isOn) text_Monster.text = Description.Unicron(outgameSettings.language);
+        if (toggle_Desolator.isOn) text_Monster.text = Description.Desolator(outgameSettings.language);
+        if (toggle_Manmoth.isOn) text_Monster.text = Description.Manmoth(outgameSettings.language);
+        if (toggle_Tank.isOn) text_Monster.text = Description.Tank(outgameSettings.language);
+        if (toggle_Dragon.isOn) text_Monster.text = Description.Dragon(outgameSettings.language);
     }
 
     public void OnClick_AnyTurrent()
     {
-        if (toggle_MachineGun.isOn) text_Tower.text = Description.MachineGun(SWelcome.languageChosen);
-        if (toggle_CrossbowHunter.isOn) text_Tower.text = Description.CrossbowHunter(SWelcome.languageChosen);
-        if (toggle_Sniper.isOn) text_Tower.text = Description.Sniper(SWelcome.languageChosen);
-        if (toggle_PillBox.isOn) text_Tower.text = Description.PillBox(SWelcome.languageChosen);
-        if (toggle_SharpnelThrower.isOn) text_Tower.text = Description.SharpnelThrower(SWelcome.languageChosen);
-        if (toggle_PatriotMissile.isOn) text_Tower.text = Description.PatriotMissile(SWelcome.languageChosen);
-        if (toggle_Rocket.isOn) text_Tower.text = Description.Rocket(SWelcome.languageChosen);
-        if (toggle_Prisim.isOn) text_Tower.text = Description.Prisim(SWelcome.languageChosen);
-        if (toggle_Transformer.isOn) text_Tower.text = Description.Transformer(SWelcome.languageChosen);
-        if (toggle_Thunder.isOn) text_Tower.text = Description.Thunder(SWelcome.languageChosen);
-        if (toggle_FlameThrower.isOn) text_Tower.text = Description.FlameThrower(SWelcome.languageChosen);
-        if (toggle_MolotovCocktail.isOn) text_Tower.text = Description.MolotovCocktail(SWelcome.languageChosen);
-        if (toggle_Micro.isOn) text_Tower.text = Description.Micro(SWelcome.languageChosen);
+        if (toggle_MachineGun.isOn) text_Tower.text = Description.MachineGun(outgameSettings.language);
+        if (toggle_CrossbowHunter.isOn) text_Tower.text = Description.CrossbowHunter(outgameSettings.language);
+        if (toggle_Sniper.isOn) text_Tower.text = Description.Sniper(outgameSettings.language);
+        if (toggle_PillBox.isOn) text_Tower.text = Description.PillBox(outgameSettings.language);
+        if (toggle_SharpnelThrower.isOn) text_Tower.text = Description.SharpnelThrower(outgameSettings.language);
+        if (toggle_PatriotMissile.isOn) text_Tower.text = Description.PatriotMissile(outgameSettings.language);
+        if (toggle_Rocket.isOn) text_Tower.text = Description.Rocket(outgameSettings.language);
+        if (toggle_Prisim.isOn) text_Tower.text = Description.Prisim(outgameSettings.language);
+        if (toggle_Transformer.isOn) text_Tower.text = Description.Transformer(outgameSettings.language);
+        if (toggle_Thunder.isOn) text_Tower.text = Description.Thunder(outgameSettings.language);
+        if (toggle_FlameThrower.isOn) text_Tower.text = Description.FlameThrower(outgameSettings.language);
+        if (toggle_MolotovCocktail.isOn) text_Tower.text = Description.MolotovCocktail(outgameSettings.language);
+        if (toggle_Micro.isOn) text_Tower.text = Description.Micro(outgameSettings.language);
     }
 
     public void OnClick_AnyPerk()
     {
-        if (toggle_MM.isOn) text_Perk.text = Description.MachineMastery(SWelcome.languageChosen);
-        if (toggle_MB.isOn) text_Perk.text = Description.MadBomber(SWelcome.languageChosen);
-        if (toggle_FR.isOn) text_Perk.text = Description.FireRanger(SWelcome.languageChosen);
-        if (toggle_TS.isOn) text_Perk.text = Description.ThunderSpirit(SWelcome.languageChosen);
+        if (toggle_MM.isOn) text_Perk.text = Description.MachineMastery(outgameSettings.language);
+        if (toggle_MB.isOn) text_Perk.text = Description.MadBomber(outgameSettings.language);
+        if (toggle_FR.isOn) text_Perk.text = Description.FireRanger(outgameSettings.language);
+        if (toggle_TS.isOn) text_Perk.text = Description.ThunderSpirit(outgameSettings.language);
     }
 }

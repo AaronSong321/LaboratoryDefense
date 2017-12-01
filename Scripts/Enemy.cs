@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public enum EnemyType { ground, air, ground_air, air_ground, unknown };
-    public enum SizeType { tiny, common, giant, boss, unknown };
+    public enum EnemyType { ground, air, ground_air, air_ground, unknown }
+    public enum SizeType { tiny, common, giant, boss, unknown }
+    public enum EnemyName { elfin, crawler, zombie, thirsty, butcher, unicorn, desolator, manmoth, tank, dragon, unknown }
 
     public float speed = 10;
     public float hp = 150;
     public int damage = 50;
     public int enemyMoney = 100;
-    private Player player;
     public float bulletResis = 1f;
     public float explosiveResis = 1f;
     public float flameResis = 1f;
@@ -22,37 +22,53 @@ public class Enemy : MonoBehaviour
     public float nuclearResis = 1f;
     public EnemyType enemyType = EnemyType.ground;
     public SizeType sizeType = SizeType.tiny;
+    public EnemyName enemyName = EnemyName.elfin;
 
     public NavMeshAgent agent;
     public GameObject explosionEffect;
+    private GameManager gameManager;
     private Slider hpSlider;
 
-    float totalHp;
+    internal float totalHp;
     float currentSpeed;
     bool stunned;
     FiringDebuff firingDebuff;
     SlowDebuff slowDebuff;
     StunDebuff stunDebuff;
-
     EnemySpawner es;
-    public class EnemyKilledEventArgs: EventArgs
+    SSoloGame scene;
+
+    public class EnemyKilledEventArgs : EventArgs
     {
-        public readonly SizeType sizeType;
-        public EnemyKilledEventArgs(SizeType thisSizeType)
+        public readonly Enemy enemy;
+        public EnemyKilledEventArgs(Enemy enemy)
         {
-            sizeType = thisSizeType;
+            this.enemy = enemy;
         }
     }
     public delegate void EnemyKilledEventHandler(object sender, EnemyKilledEventArgs e);
     public event EnemyKilledEventHandler EnemyKilledEvent;
+
+    public class EnemyReachEventArgs: EventArgs
+    {
+        public readonly Enemy enemy;
+        public EnemyReachEventArgs(Enemy enemy)
+        {
+            this.enemy = enemy;
+        }
+    }
+    public delegate void EnemyReachEventHandler(object sender, EnemyReachEventArgs e);
+    public event EnemyReachEventHandler EnemyReachEvent;
     
-    // Use this for initialization
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         es = GameObject.Find("GameManager").GetComponent<EnemySpawner>();
+        scene = GameObject.Find("SSoloGame").GetComponent<SSoloGame>();
     }
-	void Start () {
+
+	void Start ()
+    {
         totalHp = hp;
         currentSpeed = speed;
         stunned = false;
@@ -61,54 +77,36 @@ public class Enemy : MonoBehaviour
         stunDebuff = null;
         hpSlider = GetComponentInChildren<Slider>();
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed * player.perk.mobspeed_adj;
+        agent.speed = currentSpeed;
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
 
-        es.SubscribeEnemyKilledEvent(this);
+        gameManager.SubscribeEnemyKilled(this);
+        gameManager.SubscribeEnemyReach(this);
     }
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (stunned == false) Move();
         TakeFiringDamage();
         TakeSlowDamage();
         TakeStunDamage();
 	}
 
-
     void Move()
     {
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
-        /*if (index > positions.Length - 1) return;
-        transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
-        if (Vector3.Distance(positions[index].position, transform.position) < 0.2f)
-        {
-            index++;
-        }*/
         if (!agent.pathPending && agent.remainingDistance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance <= agent.stoppingDistance)
         {
             ReachDestination();
         }
     }
-    //达到终点
+    
     void ReachDestination()
     {
-        player.Playerhp -= damage;
-        EnemyKilledEvent(this, new EnemyKilledEventArgs(sizeType));
+        EnemyReachEvent(this, new EnemyReachEventArgs(this));
         Destroy(gameObject);
     }
     
-    public void TakeFiringDebuff(float damagePerSecond, float duration)
-    {
-        if (firingDebuff != null) firingDebuff.timer = duration;
-        firingDebuff = new FiringDebuff
-        {
-            damagePerSecond = damagePerSecond,
-            duration = duration,
-            timer = duration
-        };
-
-    }
     public void TakeFiringDebuff(FiringCube fc)
     {
         FiringDebuff newFiringDebuf = new FiringDebuff
@@ -188,6 +186,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    internal float GetResis(TowerDescription.AttackType type)
+    {
+        switch(type)
+        {
+            case TowerDescription.AttackType.bullet: return bulletResis;
+            case TowerDescription.AttackType.explosive: return explosiveResis;
+            case TowerDescription.AttackType.flame: return flameResis;
+            case TowerDescription.AttackType.tesla: return teslaResis;
+            case TowerDescription.AttackType.nuclear: return nuclearResis;
+            default: return 1;
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         if (hp <= 0) return;
@@ -203,21 +214,19 @@ public class Enemy : MonoBehaviour
         switch(type)
         {
             case TowerDescription.AttackType.bullet: TakeDamage(damage * bulletResis); break;
-            case TowerDescription.AttackType.explosive: TakeDamage(damage * bulletResis); break;
-            case TowerDescription.AttackType.flame: TakeDamage(damage * bulletResis); break;
-            case TowerDescription.AttackType.tesla: TakeDamage(damage * bulletResis); break;
-            case TowerDescription.AttackType.nuclear: TakeDamage(damage * bulletResis); break;
-            case TowerDescription.AttackType.unknown: Debug.Log("Unknown damage taken."); TakeDamage(damage * bulletResis); break;
+            case TowerDescription.AttackType.explosive: TakeDamage(damage * explosiveResis); break;
+            case TowerDescription.AttackType.flame: TakeDamage(damage * flameResis); break;
+            case TowerDescription.AttackType.tesla: TakeDamage(damage * teslaResis); break;
+            case TowerDescription.AttackType.nuclear: TakeDamage(damage * nuclearResis); break;
+            case TowerDescription.AttackType.unknown: Debug.Log("Unknown damage taken."); TakeDamage(damage); break;
         }
     }
 
     void Die()
     {
         GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
-        EnemyKilledEvent(this, new EnemyKilledEventArgs(sizeType));
-        player.ChangeMoney((int)(enemyMoney*player.perk.money_adj));
+        EnemyKilledEvent(this, new EnemyKilledEventArgs(this));
         Destroy(effect, 1.5f);
         Destroy(gameObject);
     }
-
 }

@@ -13,9 +13,8 @@ public class SlowCube
     public GameObject bulletPrefab;
     public bool isTracing;
     public bool enable;
-    public int slowRadius;
     public int slowDuration;
-    public double slowSpeedPercent;
+    public float slowSpeedPercent;
     public GameObject hitEffect;
 
     public void Generate(SlowCube source)
@@ -26,7 +25,6 @@ public class SlowCube
         bulletPrefab = source.bulletPrefab;
         isTracing = source.isTracing;
         hitEffect = source.hitEffect;
-        slowRadius = source.slowRadius;
         slowDuration = source.slowDuration;
         slowSpeedPercent = source.slowSpeedPercent;
     }
@@ -38,7 +36,6 @@ public class SlowCube
         ans.Append(base.ToString());
         ans.Append("\tPercent: " + slowSpeedPercent + "\n");
         ans.Append("\tDuration: " + slowDuration + "\n");
-        ans.Append("\tRadius: " + slowRadius + "\n");
         return base.ToString();
     }
 }

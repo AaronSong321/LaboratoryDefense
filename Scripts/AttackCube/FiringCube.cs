@@ -15,7 +15,6 @@ public class FiringCube
     public bool enable;
     public int duration;
     public int damagePerSecond;
-    public float radius;
     public GameObject hitEffect;
 
     public void Generate(FiringCube source)
@@ -25,7 +24,6 @@ public class FiringCube
         targetType = source.targetType;
         bulletPrefab = source.bulletPrefab;
         isTracing = source.isTracing;
-        radius = source.radius;
         duration = source.duration;
         damagePerSecond = source.damagePerSecond;
     }
@@ -39,7 +37,6 @@ public class FiringCube
         ans.Append("\tTarget Type: " + targetType + "\n");
         ans.Append("\tTracing:" + (isTracing ? "Yes" : "No") + "\n");
         ans.Append("\tDamage Per Second: " + damagePerSecond + "\n");
-        ans.Append("\tRadius: " + radius + "\n");
         ans.Append("\tDuraion: " + duration + "\n");
         return ans.ToString();
     }

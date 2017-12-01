@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SWelcome : MonoBehaviour {
+public class SWelcome : MonoBehaviour
+{
     List<string> languageString;
-    public static Description.Language languageChosen;
+
+    OutgameSettings outgameSettings;
 
     Dropdown optionsDropdown;
     CanvasGroup canvasGroup_Options;
@@ -15,7 +19,7 @@ public class SWelcome : MonoBehaviour {
     Button button_Description;
     Button button_Options;
     Button button_Quit;
-    
+
     void Awake()
     {
         languageString = new List<string>();
@@ -30,7 +34,7 @@ public class SWelcome : MonoBehaviour {
         button_Quit = GameObject.Find("MainCanvas/Button_Quit").GetComponent<Button>();
 
         optionsDropdown.options.Clear();
-        foreach(string ls in languageString)
+        foreach (string ls in languageString)
         {
             Dropdown.OptionData tempOptionData = new Dropdown.OptionData();
             tempOptionData.text = ls;
@@ -38,14 +42,16 @@ public class SWelcome : MonoBehaviour {
         }
         optionsDropdown.captionText.text = languageString[0];
         canvasGroup_Options.gameObject.SetActive(false);
-
-        languageChosen = Description.Language.English;
+        
+        string path = "OutgameSettings.xml";
+        if (!File.Exists(Settings.GeneratePath(path)))
+            outgameSettings = OutgameSettings.CreateOutgameSettings(path);
+        else
+            outgameSettings = OutgameSettings.LoadOutgameSettings(path);
     }
 
     public void OnClick_Start()
     {
-        //SceneManager.LoadScene("MainScene");
-        //SceneManager.LoadScene("SoloGame");
         SceneManager.LoadScene("ChoosingPerk");
     }
 
@@ -84,6 +90,7 @@ public class SWelcome : MonoBehaviour {
 
     public void OnChangingLanguage()
     {
-        languageChosen = Description.GetLanguage(optionsDropdown.captionText.text);
+        outgameSettings.language = OutgameSettings.GetLanguage(optionsDropdown.captionText.text);
+        outgameSettings.SaveOutgameSettings();
     }
 }

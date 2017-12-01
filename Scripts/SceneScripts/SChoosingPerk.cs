@@ -22,6 +22,8 @@ class SChoosingPerk : MonoBehaviour
         return PerkType.unknown;
     }
 
+    OutgameSettings outgameSettings;
+
     ToggleGroup TGMain;
         Toggle TOverview;
         Toggle TPerk;
@@ -70,6 +72,19 @@ class SChoosingPerk : MonoBehaviour
     CanvasGroup CGExit;
         Button BExitToMainMenu;
         Button BExitGame;
+
+    List<String> mapString = new List<string>
+    {
+        "基础地图"
+    };
+    List<String> difficultyString = new List<String>
+    {
+        "理想化的", "势均力敌的", "富有挑战的", "令人绝望的"
+    };
+    List<String> languageString = new List<string>
+    {
+        "中文（简体）", "English"
+    };
     void Awake()
     {
         TGMain = GameObject.Find("CMain/TGMain").GetComponent<ToggleGroup>();
@@ -81,8 +96,28 @@ class SChoosingPerk : MonoBehaviour
         CGOverview = GameObject.Find("CMain/CGOverview").GetComponent<CanvasGroup>();
         CGMapChoosing = GameObject.Find("CMain/CGOverview/MapChoosing").GetComponent<CanvasGroup>();
         DDMapChoosing = GameObject.Find("CMain/CGOverview/MapChoosing/Dropdown").GetComponent<Dropdown>();
+        DDMapChoosing.options.Clear();
+        foreach (String map in mapString)
+        {
+            Dropdown.OptionData optionData = new Dropdown.OptionData
+            {
+                text = map
+            };
+            DDMapChoosing.options.Add(optionData);
+        }
+        DDMapChoosing.captionText.text = mapString[0];
         CGDifficultyChoosing = GameObject.Find("CMain/CGOverview/DifficultyChoosing").GetComponent<CanvasGroup>();
         DDDifficultyChoosing = GameObject.Find("CMain/CGOverview/DifficultyChoosing/Dropdown").GetComponent<Dropdown>();
+        DDDifficultyChoosing.options.Clear();
+        foreach (String difficulty in difficultyString)
+        {
+            Dropdown.OptionData optionData = new Dropdown.OptionData
+            {
+                text = difficulty
+            };
+            DDDifficultyChoosing.options.Add(optionData);
+        }
+        DDDifficultyChoosing.captionText.text = difficultyString[0];
         CGSquadInfo = GameObject.Find("CMain/CGOverview/SquadInfo").GetComponent<CanvasGroup>();
         CGPlayer1Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player1Info").GetComponent<CanvasGroup>();
         CGPlayer2Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player2Info").GetComponent<CanvasGroup>();
@@ -116,14 +151,13 @@ class SChoosingPerk : MonoBehaviour
 
         CGOptions = GameObject.Find("CMain/CGOptions").GetComponent<CanvasGroup>();
         DLanguage = GameObject.Find("CMain/CGOptions/DLanguage").GetComponent<Dropdown>();
-        List<String> languageString = new List<string>();
-        languageString.Add("中文（简体）");
-        languageString.Add("English");
         DLanguage.options.Clear();
         foreach (String ls in languageString)
         {
-            Dropdown.OptionData tempData = new Dropdown.OptionData();
-            tempData.text = ls;
+            Dropdown.OptionData tempData = new Dropdown.OptionData
+            {
+                text = ls
+            };
             DLanguage.options.Add(tempData);
         }
         DLanguage.captionText.text = languageString[0];
@@ -132,7 +166,7 @@ class SChoosingPerk : MonoBehaviour
         BExitToMainMenu = GameObject.Find("CMain/CGExit/BExitToMainMenu").GetComponent<Button>();
         BExitGame = GameObject.Find("CMain/CGExit/BExitGame").GetComponent<Button>();
 
-
+        outgameSettings = OutgameSettings.LoadOutgameSettings();
     }
 
     void Start()
@@ -180,10 +214,10 @@ class SChoosingPerk : MonoBehaviour
 
     public void OnSelectingPerk()
     {
-        if (TPerkMM.isOn) TPerkConfiguration.text = Description.MachineMastery(SWelcome.languageChosen);
-        if (TPerkMB.isOn) TPerkConfiguration.text = Description.MadBomber(SWelcome.languageChosen);
-        if (TPerkFR.isOn) TPerkConfiguration.text = Description.FireRanger(SWelcome.languageChosen);
-        if (TPerkTS.isOn) TPerkConfiguration.text = Description.ThunderSpirit(SWelcome.languageChosen);
+        if (TPerkMM.isOn) TPerkConfiguration.text = Description.MachineMastery(outgameSettings.language);
+        if (TPerkMB.isOn) TPerkConfiguration.text = Description.MadBomber(outgameSettings.language);
+        if (TPerkFR.isOn) TPerkConfiguration.text = Description.FireRanger(outgameSettings.language);
+        if (TPerkTS.isOn) TPerkConfiguration.text = Description.ThunderSpirit(outgameSettings.language);
     }
 
     public void OnReadyClick()
@@ -193,8 +227,7 @@ class SChoosingPerk : MonoBehaviour
 
     public void OnLanguageClick()
     {
-        SWelcome.languageChosen = Description.GetLanguage(DLanguage.captionText.text);
-        Debug.Log(SWelcome.languageChosen);
+        outgameSettings.language = OutgameSettings.GetLanguage(DLanguage.captionText.text);
     }
 
     public void OnExitToMainMenuClick()
@@ -208,5 +241,11 @@ class SChoosingPerk : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnChangingLanguage()
+    {
+        outgameSettings.language = OutgameSettings.GetLanguage(DLanguage.captionText.text);
+        outgameSettings.SaveOutgameSettings();
     }
 }
