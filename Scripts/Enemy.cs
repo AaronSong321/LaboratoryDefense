@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public enum EnemyType { ground, air, ground_air, air_ground, unknown };
-    public enum SizeType { tiny, common, giant, boss, unknown };
+    public enum EnemyType { ground, air, ground_air, air_ground, unknown }
+    public enum SizeType { tiny, common, giant, boss, unknown }
+    public enum EnemyName { elfin, crawler, zombie, thirsty, butcher, unicorn, desolator, manmoth, tank, dragon, unknown }
 
     public float speed = 10;
     public float hp = 150;
@@ -19,23 +20,23 @@ public class Enemy : MonoBehaviour
     public float flameResis = 1f;
     public float teslaResis = 1f;
     public float nuclearResis = 1f;
+    public int exp = 10;
     public EnemyType enemyType = EnemyType.ground;
     public SizeType sizeType = SizeType.tiny;
+    public EnemyName enemyName = EnemyName.elfin;
 
     public NavMeshAgent agent;
     public GameObject explosionEffect;
     private GameManager gameManager;
     private Slider hpSlider;
 
-    float totalHp;
+    internal float totalHp;
     float currentSpeed;
     bool stunned;
     FiringDebuff firingDebuff;
     SlowDebuff slowDebuff;
     StunDebuff stunDebuff;
-
     EnemySpawner es;
-    Player player;
     SSoloGame scene;
 
     public class EnemyKilledEventArgs : EventArgs
@@ -62,7 +63,6 @@ public class Enemy : MonoBehaviour
     
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         es = GameObject.Find("GameManager").GetComponent<EnemySpawner>();
         scene = GameObject.Find("SSoloGame").GetComponent<SSoloGame>();
@@ -78,11 +78,12 @@ public class Enemy : MonoBehaviour
         stunDebuff = null;
         hpSlider = GetComponentInChildren<Slider>();
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed * player.perk.mobspeed_adj;
+        agent.speed = currentSpeed;
         agent.destination = GameObject.Find("End").GetComponent<Transform>().position;
 
         gameManager.SubscribeEnemyKilled(this);
         gameManager.SubscribeEnemyReach(this);
+        Player.currentPlayer.SubscribeEnemyKilled(this);
     }
 	
 	void Update ()
@@ -92,7 +93,6 @@ public class Enemy : MonoBehaviour
         TakeSlowDamage();
         TakeStunDamage();
 	}
-
 
     void Move()
     {
@@ -105,7 +105,6 @@ public class Enemy : MonoBehaviour
     
     void ReachDestination()
     {
-        player.playerhp -= damage;
         EnemyReachEvent(this, new EnemyReachEventArgs(this));
         Destroy(gameObject);
     }
@@ -186,6 +185,19 @@ public class Enemy : MonoBehaviour
                 stunDebuff = null;
                 stunned = false;
             }
+        }
+    }
+
+    internal float GetResis(TowerDescription.AttackType type)
+    {
+        switch(type)
+        {
+            case TowerDescription.AttackType.bullet: return bulletResis;
+            case TowerDescription.AttackType.explosive: return explosiveResis;
+            case TowerDescription.AttackType.flame: return flameResis;
+            case TowerDescription.AttackType.tesla: return teslaResis;
+            case TowerDescription.AttackType.nuclear: return nuclearResis;
+            default: return 1;
         }
     }
 

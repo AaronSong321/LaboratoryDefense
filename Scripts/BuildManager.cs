@@ -7,33 +7,13 @@ using UnityEngine.UI;
 
 public class BuildManager : MonoBehaviour
 {
-    public TurretData MGTurretData;
-    public TurretData PBTurretData;
-    public TurretData CHTurretData;
-    public TurretData SPTurretData;
-    public TurretData STTurretData;
-    public TurretData RLTurretData;
-    public TurretData PMTurretData;
-    public TurretData PSTurretData;
-    public TurretData TFTurretData;
-    public TurretData TDTurretData;
-    public TurretData FTTurretData;
-    public TurretData MCTurretData;
-    public TurretData MWTurretData;
-    private TurretData selectedTurretData;
-
+    TurretData selectedTurretData;
+    public TurretData[] turrets;
     GameObject TGTurrets;
-    GameObject TMG;
-    GameObject TST;
-    GameObject TPB;
-    GameObject TCH;
-    GameObject TSP;
 
     private MapCube selectedMapCube;
-    private Player player;
     public Animator moneyAnimator;
     public GameObject upgradeCanvas;
-    private Animator upgradeCanvasAnimator;
     public Button buttonUpgrade;
     private GameManager gameManager;
 
@@ -51,37 +31,14 @@ public class BuildManager : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         TGTurrets = GameObject.Find("Canvas/TurretSwitch");
-        TMG = GameObject.Find("Canvas/TurretSwitch/TMG");
-        TST = GameObject.Find("Canvas/TurretSwitch/TST");
-        TPB = GameObject.Find("Canvas/TurretSwitch/TPB");
-        TCH = GameObject.Find("Canvas/TurretSwitch/TCH");
-        TSP = GameObject.Find("Canvas/TurretSwitch/TSP");
+
+        TGTurrets.GetComponent<ToggleGroup>().SetAllTogglesOff();
+        ReadTurretsFromXml("Turrets.xml");
     }
     void Start()
     {
         gameManager.SubscribeSpendMoney(this);
-
-        upgradeCanvasAnimator = upgradeCanvas.GetComponent<Animator>();
-
-        TGTurrets.GetComponent<ToggleGroup>().SetAllTogglesOff();
-
-        ReadFromXml(MGTurretData, Turret.TurretName.MG, "Towers.xml");
-        ReadFromXml(CHTurretData, Turret.TurretName.CH, "Towers.xml");
-        ReadFromXml(PBTurretData, Turret.TurretName.PB, "Towers.xml");
-        ReadFromXml(SPTurretData, Turret.TurretName.SP, "Towers.xml");
-        ReadFromXml(STTurretData, Turret.TurretName.ST, "Towers.xml");
-        ReadFromXml(RLTurretData, Turret.TurretName.RL, "Towers.xml");
-        ReadFromXml(PMTurretData, Turret.TurretName.PM, "Towers.xml");
-        ReadFromXml(PSTurretData, Turret.TurretName.PS, "Towers.xml");
-        ReadFromXml(TFTurretData, Turret.TurretName.TF, "Towers.xml");
-        ReadFromXml(TDTurretData, Turret.TurretName.TD, "Towers.xml");
-        ReadFromXml(FTTurretData, Turret.TurretName.FT, "Towers.xml");
-        ReadFromXml(MCTurretData, Turret.TurretName.MC, "Towers.xml");
-        ReadFromXml(MWTurretData, Turret.TurretName.MW, "Towers.xml");
-        //ReadFromXml(RLTurretData, Turret.TurretName.RL, "Towers.xml");
-        //ReadFromXml(RLTurretData, Turret.TurretName.RL, "Towers.xml");
     }
 
     void Update()
@@ -98,9 +55,9 @@ public class BuildManager : MonoBehaviour
                     MapCube mapCube = hit.collider.GetComponent<MapCube>();
                     if (selectedTurretData != null && mapCube.turretGo == null)
                     {
-                        if (gameManager.money >= selectedTurretData.cost[0])
+                        if (gameManager.money >= selectedTurretData.level1.cost)
                         {
-                            SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedTurretData.cost[0]));
+                            SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedTurretData.level1.cost));
                             mapCube.BuildTurret(selectedTurretData);
                         }
                         else
@@ -112,7 +69,7 @@ public class BuildManager : MonoBehaviour
                     {
                         if (mapCube == selectedMapCube && upgradeCanvas.activeInHierarchy)
                         {
-                            StartCoroutine(HideUpgradeUI());
+                            upgradeCanvas.SetActive(false);
                         }
                         else
                         {
@@ -126,62 +83,59 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void OnMGSelected(bool isOn)
+    
+    public void OnMGSelected()
     {
-        if (isOn) selectedTurretData = MGTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.MG];
     }
-    public void OnPBSelected(bool isOn)
+    public void OnCHSelected()
     {
-        if (isOn) selectedTurretData = PBTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.CH];
     }
-    public void OnCHSelected(bool isOn)
+    public void OnPBSelected()
     {
-        if (isOn) selectedTurretData = CHTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.PB];
     }
-    public void OnSPSelected(bool isOn)
+    public void OnSPSelected()
     {
-        if (isOn) selectedTurretData = SPTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.SP];
     }
-    public void OnSTSelected(bool isOn)
+    public void OnSTSelected()
     {
-        if (isOn) selectedTurretData = STTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.ST];
     }
     public void OnRLSelected()
     {
-        selectedTurretData = RLTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.RL];
     }
     public void OnPMSelected()
     {
-        selectedTurretData = PMTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.PM];
     }
     public void OnPSSelected()
     {
-        selectedTurretData = PSTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.PS];
     }
     public void OnTFSelected()
     {
-        selectedTurretData = TFTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.TF];
     }
     public void OnTDSelected()
     {
-        selectedTurretData = TDTurretData;
+        selectedTurretData = turrets[(int)Turret.TurretName.TD];
     }
+    
+    
 
     void ShowUpgradeUI(Vector3 pos, int mapCurrentLevel)
     {
-        StopCoroutine("HideUpgradeUI");
         upgradeCanvas.SetActive(false);
         upgradeCanvas.SetActive(true);
         upgradeCanvas.transform.position = pos;
-        if (mapCurrentLevel == 3) 
+        if (mapCurrentLevel == 3)
             buttonUpgrade.gameObject.SetActive(false);
-    }
-
-    IEnumerator HideUpgradeUI()
-    {
-        upgradeCanvasAnimator.SetTrigger("Hide");
-        yield return new WaitForSeconds(0.8f);
-        upgradeCanvas.SetActive(false);
+        else
+            buttonUpgrade.gameObject.SetActive(true);
     }
 
     public void OnUpgradeButtonDown()
@@ -194,9 +148,9 @@ public class BuildManager : MonoBehaviour
                 case 3:
                     break;
                 case 1:
-                    if (gameManager.money >= selectedMapCube.turretData.cost[1])
+                    if (gameManager.money >= selectedMapCube.turretData.level1.cost)
                     {
-                        SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedMapCube.turretData.cost[1]));
+                        SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedMapCube.turretData.level2.cost));
                         selectedMapCube.UpgradeTurret();
                     }
                     else
@@ -205,9 +159,9 @@ public class BuildManager : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (gameManager.money >= selectedMapCube.turretData.cost[2])
+                    if (gameManager.money >= selectedMapCube.turretData.level2.cost)
                     {
-                        SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedMapCube.turretData.cost[2]));
+                        SpendMoneyEvent(this, new SpendMoneyEventArgs(selectedMapCube.turretData.level2.cost));
                         selectedMapCube.UpgradeTurret();
                     }
                     else
@@ -217,52 +171,55 @@ public class BuildManager : MonoBehaviour
                     break;
             }
         }
-        StartCoroutine(HideUpgradeUI());
+        upgradeCanvas.SetActive(false);
     }
     public void OnDestroyButtonDown()
     {
         selectedMapCube.DestroyTurret();
-        StartCoroutine(HideUpgradeUI());
+        upgradeCanvas.SetActive(false);
     }
-    
-    public void ReadFromXml(TurretData td, Turret.TurretName turretName, string fileName = "Towers.xml")
-    {
-        string filePath = "fileName";
-#if UNITY_EDITOR
-        filePath = Application.dataPath + "/StreamingAssets/" + fileName;
-#elif UNITY_IPHONE
-        filePath = Application.dataPath +"/Raw/"+fileName;  
-#elif UNITY_ANDROID
-        filePath = "jar:file://" + Application.dataPath + "!/assets/"+fileName;  
-#else
-        filePath = Application.dataPath + "/StreamingAssets/" + fileName;
-#endif
 
+    void ReadTurretsFromXml(string fileName = "Turrets.xml")
+    {
+        string filePath = Settings.GeneratePath(fileName);
         XmlReaderSettings settings = new XmlReaderSettings
         {
             IgnoreComments = true
         };
 
-        XmlReader turretReader = XmlReader.Create(filePath);
+        XmlReader turretReader = XmlReader.Create(filePath, settings);
         XmlDocument turretDocument = new XmlDocument();
         turretDocument.Load(turretReader);
 
-        XmlNode turretRootNode = turretDocument.SelectSingleNode("Towers");
+        XmlNode turretRootNode = turretDocument.SelectSingleNode("Turrets");
         XmlNodeList turretLists = turretRootNode.ChildNodes;
-
-        foreach(XmlElement turretElement in turretLists)
+        
+        for (int i = 0; i < turretLists.Count; i++)
         {
-            if (turretElement.GetAttribute("name") == turretName.ToString())
+            XmlElement lv1 = (XmlElement)turretLists[i].ChildNodes.Item(0);
+            XmlElement lv2 = (XmlElement)turretLists[i].ChildNodes.Item(1);
+            XmlElement lv3 = (XmlElement)turretLists[i].ChildNodes.Item(2);
+            turrets[i].level1 = new TurretData.LevelInfo
             {
-                td.cost = new int[3];
-                XmlElement level = (XmlElement)turretElement.ChildNodes.Item(0);
-                td.cost[0] = System.Int32.Parse(level.GetAttribute("cost"));
-                level = (XmlElement)turretElement.ChildNodes.Item(1);
-                td.cost[1] = System.Int32.Parse(level.GetAttribute("cost"));
-                level = (XmlElement)turretElement.ChildNodes.Item(2);
-                td.cost[2] = System.Int32.Parse(level.GetAttribute("cost"));
-                break;
-            }
+                cost = Int32.Parse(lv1.GetAttribute("cost")),
+                attackSpeed = Int32.Parse(lv1.GetAttribute("attackSpeed")),
+                minRange = Int32.Parse(lv1.GetAttribute("minRange")),
+                maxRange = Int32.Parse(lv1.GetAttribute("maxRange"))
+            };
+            turrets[i].level2 = new TurretData.LevelInfo
+            {
+                cost = Int32.Parse(lv2.GetAttribute("cost")),
+                attackSpeed = Int32.Parse(lv2.GetAttribute("attackSpeed")),
+                minRange = Int32.Parse(lv2.GetAttribute("minRange")),
+                maxRange = Int32.Parse(lv2.GetAttribute("maxRange"))
+            };
+            turrets[i].level3 = new TurretData.LevelInfo
+            {
+                cost = Int32.Parse(lv3.GetAttribute("cost")),
+                attackSpeed = Int32.Parse(lv3.GetAttribute("attackSpeed")),
+                minRange = Int32.Parse(lv3.GetAttribute("minRange")),
+                maxRange = Int32.Parse(lv3.GetAttribute("maxRange"))
+            };
         }
     }
 }

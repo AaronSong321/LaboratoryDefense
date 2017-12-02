@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
         xWave = GameObject.Find("Canvas/XWave").GetComponent<Text>();
         xEnemyAliveCount = GameObject.Find("Canvas/XEnemyCount").GetComponent<Text>();
         xBaseHp = GameObject.Find("Canvas/XBaseHP").GetComponent<Text>();
+
+        GiantPreAnimoPair.ReadAnimosityFromCsv();
     }
 
     void Start()

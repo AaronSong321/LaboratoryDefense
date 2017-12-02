@@ -1,51 +1,73 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SWelcome : MonoBehaviour {
+public class SWelcome : MonoBehaviour
+{
     List<string> languageString;
-    public static Description.Language languageChosen;
+
+    OutgameSettings outgameSettings;
 
     Dropdown optionsDropdown;
-    CanvasGroup canvasGroup_Options;
+    CanvasGroup CGOptions;
+    CanvasGroup CGMain;
+    CanvasGroup CGLogin;
+        InputField IFName;
+        InputField IFPassword;
+        Text XMessage;
 
-    Button button_Start;
-    Button button_Description;
-    Button button_Options;
-    Button button_Quit;
-    
     void Awake()
     {
-        languageString = new List<string>();
-        languageString.Add("English");
-        languageString.Add("中文（简体）");
+        languageString = new List<string>
+        {
+            "English",
+            "中文（简体）"
+        };
 
-        canvasGroup_Options = GameObject.Find("MainCanvas/CanvasGroup_Options").GetComponent<CanvasGroup>();
-        optionsDropdown = GameObject.Find("MainCanvas/CanvasGroup_Options/Dropdown").GetComponent<Dropdown>();
-        button_Start = GameObject.Find("MainCanvas/Button_Start").GetComponent<Button>();
-        button_Description = GameObject.Find("MainCanvas/Button_Description").GetComponent<Button>();
-        button_Options = GameObject.Find("MainCanvas/Button_Options").GetComponent<Button>();
-        button_Quit = GameObject.Find("MainCanvas/Button_Quit").GetComponent<Button>();
+        CGOptions = GameObject.Find("Canvas/CGOptions").GetComponent<CanvasGroup>();
+        CGMain = GameObject.Find("Canvas/CGMain").GetComponent<CanvasGroup>();
+        CGLogin = GameObject.Find("Canvas/CGLogin").GetComponent<CanvasGroup>();
+        optionsDropdown = GameObject.Find("Canvas/CGOptions/Dropdown").GetComponent<Dropdown>();
+        IFName = GameObject.Find("Canvas/CGLogin/IFName").GetComponent<InputField>();
+        IFPassword = GameObject.Find("Canvas/CGLogin/IFPassword").GetComponent<InputField>();
+        XMessage = GameObject.Find("Canvas/CGLogin/XMessage").GetComponent<Text>();
+
+        IFName.characterLimit = 15;
+        IFName.lineType = InputField.LineType.SingleLine;
+        IFPassword.characterLimit = 15;
+        IFPassword.lineType = InputField.LineType.SingleLine;
+        IFPassword.contentType = InputField.ContentType.Password;
 
         optionsDropdown.options.Clear();
-        foreach(string ls in languageString)
+        foreach (string ls in languageString)
         {
             Dropdown.OptionData tempOptionData = new Dropdown.OptionData();
             tempOptionData.text = ls;
             optionsDropdown.options.Add(tempOptionData);
         }
         optionsDropdown.captionText.text = languageString[0];
-        canvasGroup_Options.gameObject.SetActive(false);
+        CGOptions.gameObject.SetActive(false);
+        
+        string path = "OutgameSettings.xml";
+        if (!File.Exists(Settings.GeneratePath(path)))
+            outgameSettings = OutgameSettings.CreateOutgameSettings(path);
+        else
+            outgameSettings = OutgameSettings.LoadOutgameSettings(path);
 
-        languageChosen = Description.Language.English;
+        if (Player.currentPlayer == null)
+        {
+            CGMain.interactable = false;
+            CGLogin.gameObject.SetActive(true);
+        }
+        else CGLogin.gameObject.SetActive(false);
     }
 
     public void OnClick_Start()
     {
-        //SceneManager.LoadScene("MainScene");
-        //SceneManager.LoadScene("SoloGame");
         SceneManager.LoadScene("ChoosingPerk");
     }
 
@@ -65,25 +87,47 @@ public class SWelcome : MonoBehaviour {
 
     public void OnClick_Options()
     {
-        canvasGroup_Options.gameObject.SetActive(true);
-        button_Start.interactable = false;
-        button_Description.interactable = false;
-        button_Options.GetComponent<Button>().interactable = false;
-        button_Quit.GetComponent<Button>().interactable = false;
-        //languageChosen = Description.GetLanguage(optionsDropdown.options[optionsDropdown.value].text);
+        CGOptions.gameObject.SetActive(true);
+        CGMain.interactable = false;
     }
 
     public void OnClick_Back()
     {
-        canvasGroup_Options.gameObject.SetActive(false);
-        button_Start.interactable = true;
-        button_Description.interactable = true;
-        button_Options.GetComponent<Button>().interactable = true;
-        button_Quit.GetComponent<Button>().interactable = true;
+        CGOptions.gameObject.SetActive(false);
+        CGMain.interactable = true;
     }
 
     public void OnChangingLanguage()
     {
-        languageChosen = Description.GetLanguage(optionsDropdown.captionText.text);
+        outgameSettings.language = OutgameSettings.GetLanguage(optionsDropdown.captionText.text);
+        outgameSettings.SaveOutgameSettings();
+    }
+
+    public void OnLogin()
+    {
+        string playerName = IFName.text;
+        string password = IFPassword.text;
+        Player.LogInState logInState = Player.LogIn(playerName, password);
+        switch(logInState)
+        {
+            case Player.LogInState.doesNotExist: XMessage.text = "用户不存在"; break;
+            case Player.LogInState.wrongPassword: XMessage.text = "密码错误"; break;
+            case Player.LogInState.success: CGLogin.gameObject.SetActive(false); CGMain.interactable = true; break;
+        }
+    }
+
+    public void OnRegister()
+    {
+        string playerName = IFName.text;
+        string password = IFPassword.text;
+        Player.RegisterState registerState = Player.Register(playerName, password);
+        switch(registerState)
+        {
+            case Player.RegisterState.alreadyExist: XMessage.text = "用户名已存在"; break;
+            case Player.RegisterState.success:
+                XMessage.text = "注册成功，请登录";
+                IFPassword.text = "";
+                break;
+        }
     }
 }

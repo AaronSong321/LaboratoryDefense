@@ -6,5 +6,18 @@ using UnityEngine;
 public class TurretData
 {
     public GameObject[] turretPrefab;
-    internal int[] cost;
+    internal class LevelInfo
+    {
+        internal int cost;
+        internal float attackSpeed;
+        internal float minRange = 0;
+        internal float maxRange = 240;
+        internal ImmediateCube ic;
+        internal ExplosionCube ec;
+        internal FiringCube fc;
+        internal SlowCube sc;
+        internal StunCube tc;
+    }
+
+    internal LevelInfo level1, level2, level3;
 }

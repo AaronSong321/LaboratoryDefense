@@ -22,6 +22,8 @@ class SChoosingPerk : MonoBehaviour
         return PerkType.unknown;
     }
 
+    OutgameSettings outgameSettings;
+
     ToggleGroup TGMain;
         Toggle TOverview;
         Toggle TPerk;
@@ -33,18 +35,24 @@ class SChoosingPerk : MonoBehaviour
             Dropdown DDMapChoosing;
         CanvasGroup CGDifficultyChoosing;
             Dropdown DDDifficultyChoosing;
-        CanvasGroup CGSquadInfo;
-            CanvasGroup CGPlayer1Info;
-            CanvasGroup CGPlayer2Info;
-            CanvasGroup CGPlayer3Info;
+        //CanvasGroup CGSquadInfo;
+            //CanvasGroup CGPlayer1Info;
+            //CanvasGroup CGPlayer2Info;
+            //CanvasGroup CGPlayer3Info;
             Button BReady;
+            Text XP1PerkLevel;
+            Text XP1Name;
 
     CanvasGroup CGPerk;
         CanvasGroup CGSelectingPerk;
             CanvasGroup CGPerkMM;
+            Text TMMLevel;
             CanvasGroup CGPerkMB;
+            Text TMBLevel;
             CanvasGroup CGPerkFR;
+            Text TFRLevel;
             CanvasGroup CGPerkTS;
+            Text TTSLevel;
         ToggleGroup TGSelectingPerk;
             Toggle TPerkMM;
             Toggle TPerkMB;
@@ -70,6 +78,19 @@ class SChoosingPerk : MonoBehaviour
     CanvasGroup CGExit;
         Button BExitToMainMenu;
         Button BExitGame;
+
+    List<String> mapString = new List<string>
+    {
+        "基础地图"
+    };
+    List<String> difficultyString = new List<String>
+    {
+        "理想化的", "势均力敌的", "富有挑战的", "令人绝望的"
+    };
+    List<String> languageString = new List<string>
+    {
+        "中文（简体）", "English"
+    };
     void Awake()
     {
         TGMain = GameObject.Find("CMain/TGMain").GetComponent<ToggleGroup>();
@@ -81,13 +102,38 @@ class SChoosingPerk : MonoBehaviour
         CGOverview = GameObject.Find("CMain/CGOverview").GetComponent<CanvasGroup>();
         CGMapChoosing = GameObject.Find("CMain/CGOverview/MapChoosing").GetComponent<CanvasGroup>();
         DDMapChoosing = GameObject.Find("CMain/CGOverview/MapChoosing/Dropdown").GetComponent<Dropdown>();
+        DDMapChoosing.options.Clear();
+        foreach (String map in mapString)
+        {
+            Dropdown.OptionData optionData = new Dropdown.OptionData
+            {
+                text = map
+            };
+            DDMapChoosing.options.Add(optionData);
+        }
+        DDMapChoosing.captionText.text = mapString[0];
         CGDifficultyChoosing = GameObject.Find("CMain/CGOverview/DifficultyChoosing").GetComponent<CanvasGroup>();
         DDDifficultyChoosing = GameObject.Find("CMain/CGOverview/DifficultyChoosing/Dropdown").GetComponent<Dropdown>();
-        CGSquadInfo = GameObject.Find("CMain/CGOverview/SquadInfo").GetComponent<CanvasGroup>();
-        CGPlayer1Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player1Info").GetComponent<CanvasGroup>();
-        CGPlayer2Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player2Info").GetComponent<CanvasGroup>();
-        CGPlayer3Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player3Info").GetComponent<CanvasGroup>();
+        DDDifficultyChoosing.options.Clear();
+        foreach (String difficulty in difficultyString)
+        {
+            Dropdown.OptionData optionData = new Dropdown.OptionData
+            {
+                text = difficulty
+            };
+            DDDifficultyChoosing.options.Add(optionData);
+        }
+        DDDifficultyChoosing.captionText.text = difficultyString[0];
+        //CGSquadInfo = GameObject.Find("CMain/CGOverview/SquadInfo").GetComponent<CanvasGroup>();
+        //CGPlayer1Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player1Info").GetComponent<CanvasGroup>();
+        //CGPlayer2Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player2Info").GetComponent<CanvasGroup>();
+        //CGPlayer3Info = GameObject.Find("CMain/CGOverview/SquadInfo/Player3Info").GetComponent<CanvasGroup>();
         BReady = GameObject.Find("CMain/CGOverview/SquadInfo/BReady").GetComponent<Button>();
+        XP1PerkLevel = GameObject.Find("CMain/CGOverview/SquadInfo/Player1Info/PerkLevel").GetComponent<Text>();
+        XP1Name = GameObject.Find("CMain/CGOverview/SquadInfo/Player1Info/Name").GetComponent<Text>();
+        XP1Name.text = Player.currentPlayer.playerName;
+        XP1PerkLevel.text = "Lv" + Player.currentPlayer.perkInfo[(int)Player.currentPlayer.selectedPerk].currentLevel.ToString()
+            + Perk.GetChineseString(Player.currentPlayer.selectedPerk);
 
         CGPerk = GameObject.Find("CMain/CGPerk").GetComponent<CanvasGroup>();
         CGSelectingPerk = GameObject.Find("CMain/CGPerk/CGSelectingPerk").GetComponent<CanvasGroup>();
@@ -95,6 +141,15 @@ class SChoosingPerk : MonoBehaviour
         CGPerkMB = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkMB").GetComponent<CanvasGroup>();
         CGPerkFR = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkFR").GetComponent<CanvasGroup>();
         CGPerkTS = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkTS").GetComponent<CanvasGroup>();
+        TMMLevel = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkMM/Level").GetComponent<Text>();
+        TMBLevel = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkMB/Level").GetComponent<Text>();
+        TFRLevel = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkFR/Level").GetComponent<Text>();
+        TTSLevel = GameObject.Find("CMain/CGPerk/CGSelectingPerk/CGPerkTS/Level").GetComponent<Text>();
+        TMMLevel.text = Player.currentPlayer.perkInfo[(int)Perk.PerkName.MM].currentLevel.ToString();
+        TMBLevel.text = Player.currentPlayer.perkInfo[(int)Perk.PerkName.MB].currentLevel.ToString();
+        TFRLevel.text = Player.currentPlayer.perkInfo[(int)Perk.PerkName.FR].currentLevel.ToString();
+        TTSLevel.text = Player.currentPlayer.perkInfo[(int)Perk.PerkName.TS].currentLevel.ToString();
+
         CGAbilitiesSelected = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected").GetComponent<CanvasGroup>();
         I10Up = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected/Ability10Up").GetComponent<Image>();
         I10Down = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected/Ability10Down").GetComponent<Image>();
@@ -106,6 +161,7 @@ class SChoosingPerk : MonoBehaviour
         I40Down = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected/Ability40Down").GetComponent<Image>();
         I50Up = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected/Ability50Up").GetComponent<Image>();
         I50Down = GameObject.Find("CMain/CGPerk/CGAbilitiesSelected/Ability50Down").GetComponent<Image>();
+
         CGPerkConfiguration = GameObject.Find("CMain/CGPerk/CGPerkConfiguration").GetComponent<CanvasGroup>();
         TPerkConfiguration = GameObject.Find("CMain/CGPerk/CGPerkConfiguration/Scroll View/Viewport/Content").GetComponent<Text>();
         TGSelectingPerk = GameObject.Find("CMain/CGPerk/CGSelectingPerk").GetComponent<ToggleGroup>();
@@ -116,14 +172,13 @@ class SChoosingPerk : MonoBehaviour
 
         CGOptions = GameObject.Find("CMain/CGOptions").GetComponent<CanvasGroup>();
         DLanguage = GameObject.Find("CMain/CGOptions/DLanguage").GetComponent<Dropdown>();
-        List<String> languageString = new List<string>();
-        languageString.Add("中文（简体）");
-        languageString.Add("English");
         DLanguage.options.Clear();
         foreach (String ls in languageString)
         {
-            Dropdown.OptionData tempData = new Dropdown.OptionData();
-            tempData.text = ls;
+            Dropdown.OptionData tempData = new Dropdown.OptionData
+            {
+                text = ls
+            };
             DLanguage.options.Add(tempData);
         }
         DLanguage.captionText.text = languageString[0];
@@ -132,7 +187,7 @@ class SChoosingPerk : MonoBehaviour
         BExitToMainMenu = GameObject.Find("CMain/CGExit/BExitToMainMenu").GetComponent<Button>();
         BExitGame = GameObject.Find("CMain/CGExit/BExitGame").GetComponent<Button>();
 
-
+        outgameSettings = OutgameSettings.LoadOutgameSettings();
     }
 
     void Start()
@@ -180,10 +235,28 @@ class SChoosingPerk : MonoBehaviour
 
     public void OnSelectingPerk()
     {
-        if (TPerkMM.isOn) TPerkConfiguration.text = Description.MachineMastery(SWelcome.languageChosen);
-        if (TPerkMB.isOn) TPerkConfiguration.text = Description.MadBomber(SWelcome.languageChosen);
-        if (TPerkFR.isOn) TPerkConfiguration.text = Description.FireRanger(SWelcome.languageChosen);
-        if (TPerkTS.isOn) TPerkConfiguration.text = Description.ThunderSpirit(SWelcome.languageChosen);
+        if (TPerkMM.isOn)
+        {
+            TPerkConfiguration.text = Description.MachineMastery(outgameSettings.language);
+            Player.currentPlayer.selectedPerk = Perk.PerkName.MM;
+        }
+        if (TPerkMB.isOn)
+        {
+            TPerkConfiguration.text = Description.MadBomber(outgameSettings.language);
+            Player.currentPlayer.selectedPerk = Perk.PerkName.MB;
+        }
+        if (TPerkFR.isOn)
+        {
+            TPerkConfiguration.text = Description.FireRanger(outgameSettings.language);
+            Player.currentPlayer.selectedPerk = Perk.PerkName.FR;
+        }
+        if (TPerkTS.isOn)
+        {
+            TPerkConfiguration.text = Description.ThunderSpirit(outgameSettings.language);
+            Player.currentPlayer.selectedPerk = Perk.PerkName.TS;
+        }
+        XP1PerkLevel.text = "Lv" + Player.currentPlayer.perkInfo[(int)Player.currentPlayer.selectedPerk].currentLevel.ToString()
+            + Perk.GetChineseString(Player.currentPlayer.selectedPerk);
     }
 
     public void OnReadyClick()
@@ -193,8 +266,8 @@ class SChoosingPerk : MonoBehaviour
 
     public void OnLanguageClick()
     {
-        SWelcome.languageChosen = Description.GetLanguage(DLanguage.captionText.text);
-        Debug.Log(SWelcome.languageChosen);
+        outgameSettings.language = OutgameSettings.GetLanguage(DLanguage.captionText.text);
+        outgameSettings.SaveOutgameSettings();
     }
 
     public void OnExitToMainMenuClick()
@@ -208,5 +281,11 @@ class SChoosingPerk : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnChangingLanguage()
+    {
+        outgameSettings.language = OutgameSettings.GetLanguage(DLanguage.captionText.text);
+        outgameSettings.SaveOutgameSettings();
     }
 }

@@ -22,8 +22,7 @@ public class BulletObj : MonoBehaviour
     public FiringCube fc;
     public SlowCube sc;
     public StunCube tc;
-
-    public Player player;
+    
     public TowerDescription.AttackType mainDamageType;
     public Turret.TurretName fatherTower;
 

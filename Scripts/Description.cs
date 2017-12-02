@@ -5,29 +5,13 @@ using System.Text;
 
 public class Description
 {
-    public enum Language { English, Chinese};
 
-    public static Language GetLanguage(String s)
-    {
-        Description.Language ans;
-        switch(s)
-        {
-            case "English": ans = Language.English;
-                break;
-            case "中文（简体）":ans = Language.Chinese;
-                break;
-            default: ans = Language.Chinese;
-                break;
-        }
-        return ans;
-    }
-
-    public static String MachineMastery(Language l)
+    public static String MachineMastery(OutgameSettings.Language l)
     {
         String answer="";
         switch (l)
         {
-            case Language.English: answer = "Properties:\n" +
+            case OutgameSettings.Language.English: answer = "Properties:\n" +
                 "    MachineGun, Pillbox basic damage increase: 1% per level\n" +
                 "    Sniper, CrossbowHunter basic damage increase: 0.6% per level\n" +
                 "    Sniper, CrossbowHunter basic firing rate increase: 0.1 per level\n" +
@@ -50,7 +34,7 @@ public class Description
                 "        Fat penalty: Every shot from Sniper will do an extra damage equal to 20% of the maximum health of the target. The maximum extra damage is 900.\n" +
                 "        Dud versus head: Rocket can shoot in any distance; when shooting from a distance shorter than the original minimum, the rocket shell deals 4/6/8 times of the bullet damage without explosion.\n";
                 break;
-            case Language.Chinese: answer = "属性：\n" +
+            case OutgameSettings.Language.Chinese: answer = "属性：\n" +
                 "    哨兵枪，机枪碉堡伤害增加：每级1%\n" +
                 "    狙击塔，猎人塔伤害增加：每级0.6%\n" +
                 "    狙击塔，猎人塔攻击速度增加：每级0.1\n" +
@@ -73,17 +57,17 @@ public class Description
                 "        肥胖惩罚：狙击塔每次攻击对敌人造成其最大生命值20%的额外伤害，最大额外伤害为900。\n" +
                 "        爆头：允许火箭弹可以在任意不超过最大射程的距离开火；如果射击距离小于预定的最小射程，则会造成4/6/8倍的子弹伤害，但不发生爆炸。\n";
                 break;
-            default: answer = "Unknown language pack."; break;
+            default: answer = "Unknown OutgameSettings.Language pack."; break;
         }
         return answer;
     }
 
-    public static String MadBomber(Language l)
+    public static String MadBomber(OutgameSettings.Language l)
     {
         String answer = "";
         switch(l)
         {
-            case Language.English: answer = "Properties:\n" +
+            case OutgameSettings.Language.English: answer = "Properties:\n" +
                 "    SharpnelThrower, Rocket, PatriotMissile explosion damage increase: 1% per level\n" +
                 "    SharpnelThrower, Rocket, PatriotMissile explosion range increase: 0.2% per level\n" +
                 "    Experience gained increase: 25%\n" +
@@ -104,7 +88,7 @@ public class Description
                 "        Final core: Increase Rocket damage to enemies typed giant or boss 40%.\n" +
                 "        Nuclear Bomber: Give Rocket and PatriotMissile a chance of 5% to release a nuclear explosion, which can deal an extra explosion, with a range of 80, damage 50 for 8s. Both the direct and following damages are typed nuclear.\n";
                 break;
-            case Language.Chinese: answer = "属性：\n" +
+            case OutgameSettings.Language.Chinese: answer = "属性：\n" +
                 "    榴弹发射器，火箭弹，导弹塔爆炸伤害增加：每级1%\n" +
                 "    榴弹发射器，火箭弹，导弹塔爆炸范围增加：每级0.2%\n" +
                 "    经验增加：25%\n" +
@@ -125,18 +109,18 @@ public class Description
                 "        终极进化：增加导弹塔对大型敌人或boss伤害40%。\n" +
                 "        核弹井：火箭弹，导弹塔有5%的几率打出核弹，对范围80内的敌人每秒造成50点伤害，持续8s。核弹的所有伤害均为核能。\n";
                 break;
-            default: answer = "Unknown language pack.";
+            default: answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String FireRanger(Language l)
+    public static String FireRanger(OutgameSettings.Language l)
     {
         String answer = "";
         switch(l)
         {
-            case Language.English: answer = "Properties:\n" +
+            case OutgameSettings.Language.English: answer = "Properties:\n" +
                 "    FlameThrower, MolotovCocktail, Micro flame damage increase: 1% per level\n" +
                 "    SharpnelThrower, Rocket, PatriotMissile explosion explosion damage increase: 0.4% per level\n" +
                 "    Transformer tesla damage increase: 0.4% per level\n" +
@@ -157,7 +141,7 @@ public class Description
                 "        Air rush: Enable Macro to attack air units.\n" +
                 "        Disarm: Upgrade FlameThrower, MolotovCocktail, Macro, ignoring flame resistance when attacking enemies typed tiny, common or giant.\n";
                 break;
-            case Language.Chinese: answer = "属性：\n" +
+            case OutgameSettings.Language.Chinese: answer = "属性：\n" +
                 "    火焰喷射器，燃烧瓶，微波塔伤害增加：每级1%\n" +
                 "    榴弹发射器，火箭弹，导弹塔爆炸伤害增加：每级0.4%\n" +
                 "    变压器伤害增加：每级0.4%\n" +
@@ -172,24 +156,24 @@ public class Description
                 "        双刃剑：降低微波塔对小型敌人50%的伤害，但是增加其对大型敌人的伤害50%。\n" +
                 "        火焰装甲：增加基地生命值30%，降低基地受到大型敌人伤害20%。\n" +
                 "    等级40：\n" +
-                "        火焰箭矢：猎人塔造成火焰伤害，最小生成降低为0。这样的猎人塔还会享受这个职业的属性加成。\n" +
+                "        火焰箭矢：弩炮造成火焰伤害，最小射程降低为0。这样的猎人塔还会享受这个职业的属性加成。\n" +
                 "        反复烹饪：火焰喷射器，燃烧瓶，微波塔的灼烧效果线性叠加。\n" +
                 "    等级50：\n" +
                 "        坠机：允许微波塔攻击飞行单位。\n" +
                 "        缴械：使得火焰喷射器，燃烧瓶，微波塔在攻击小型，中型或大型的敌人时无视火焰抗性。\n";
                 break;
-            default:answer = "Unknown language pack.";
+            default:answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String ThunderSpirit(Language l)
+    public static String ThunderSpirit(OutgameSettings.Language l)
     {
         String answer = "";
         switch(l)
         {
-            case Language.English: answer = "Properties:\n" +
+            case OutgameSettings.Language.English: answer = "Properties:\n" +
                 "    Prisim, Transformer, Thunder disability duration increase: 0.7% per level\n" +
                 "    Thunder shots towards air units stun possibility increase: 0.1\n" +
                 "    Transformer slow duration increase: 0.2s per 10 level\n" +
@@ -212,7 +196,7 @@ public class Description
                 "        Electrical fire: Micro deals tesla damage. Besides, Micro enjoys the property of damage increase.\n" +
                 "        Double damage: Every stun with Prisim, Thunder, Sniper, CrossbowHunter deals an extra damage equal to the damage of that tower.\n";
                 break;
-            case Language.Chinese: answer = "属性：\n" +
+            case OutgameSettings.Language.Chinese: answer = "属性：\n" +
                 "    电击塔，变压器，闪电塔眩晕时间增加：每级0.7%\n" +
                 "    闪电塔攻击对空中单位的眩晕几率增加：10%\n" +
                 "    变压器减速时间增加：每10级0.2s\n" +
@@ -239,13 +223,13 @@ public class Description
         return answer;
     }
 
-    public static String BaseballCoach(Language l)
+    public static String BaseballCoach(OutgameSettings.Language l)
     {
         String answer = "";
         switch(l)
         {
-            case Language.English:
-            case Language.Chinese: answer = "名字：棒球教练\n" +
+            case OutgameSettings.Language.English:
+            case OutgameSettings.Language.Chinese: answer = "名字：棒球教练\n" +
                     "    属性：\n" +
                     "        任意塔攻击速度增加：每级0.4%\n" +
                     "        哨兵枪，榴弹发射器，电击塔攻击力增加：每级0.4%\n" +
@@ -271,12 +255,12 @@ public class Description
         return answer;
     }
 
-    public static String Elfin(Language l)
+    public static String Elfin(OutgameSettings.Language l)
     {
         String answer = "";
         switch(l)
         {
-            case Language.English: answer = "name: Elfin\n" +
+            case OutgameSettings.Language.English: answer = "name: Elfin\n" +
                 "size: tiny\n" +
                 "health point: 92\n" +
                 "speed: 120\n" +
@@ -290,7 +274,7 @@ public class Description
                 "    flame: 1\n" +
                 "    nuclear: 1\n";
                 break;
-            case Language.Chinese: answer = "名字：小精灵\n" +
+            case OutgameSettings.Language.Chinese: answer = "名字：小精灵\n" +
                 "体型：小型\n" +
                 "生命值：92\n" +
                 "速度：120\n" +
@@ -304,18 +288,18 @@ public class Description
                 "    火焰抗性：1\n" +
                 "    核能抗性：1\n";
                 break;
-            default: answer = "Unknown language pack.";
+            default: answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Crawler(Language l)
+    public static String Crawler(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Crawler\n" +
                  "size: tiny\n" +
                  "health point: 60\n" +
@@ -330,7 +314,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：爬行者\n" +
                  "体型：小型\n" +
                  "生命值：60\n" +
@@ -346,18 +330,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Zombie(Language l)
+    public static String Zombie(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Zombie\n" +
                  "size: tiny\n" +
                  "health point: 180\n" +
@@ -372,7 +356,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：僵尸\n" +
                  "体型：小型\n" +
                  "生命值：180\n" +
@@ -381,25 +365,25 @@ public class Description
                  "类型：地面单位\n" +
                  "金钱奖励：13\n" +
                  "伤害抗性：\n" +
-                 "    子弹抗性：1\n" +
-                 "    爆炸抗性：1\n" +
-                 "    电磁抗性：1\n" +
+                 "    子弹抗性：0.7\n" +
+                 "    爆炸抗性：0.8\n" +
+                 "    电磁抗性：0.6\n" +
                  "    火焰抗性：1\n" +
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Thirsty(Language l)
+    public static String Thirsty(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Thirsty\n" +
                  "size: tiny\n" +
                  "health point: 70\n" +
@@ -414,7 +398,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：嗜血者\n" +
                  "体型：小型\n" +
                  "生命值：70\n" +
@@ -430,18 +414,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Butcher(Language l)
+    public static String Butcher(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Butcher\n" +
                  "size: tiny\n" +
                  "health point: 650\n" +
@@ -456,7 +440,7 @@ public class Description
                  "    flame: 1.5\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：屠夫\n" +
                  "体型：中型\n" +
                  "生命值：650\n" +
@@ -472,18 +456,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Unicron(Language l)
+    public static String Unicron(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Unicorn\n" +
                  "size: common\n" +
                  "health point: 750\n" +
@@ -498,7 +482,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：独角兽\n" +
                  "体型：中型\n" +
                  "生命值：750\n" +
@@ -514,18 +498,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Desolator(Language l)
+    public static String Desolator(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Desolator\n" +
                  "size: tiny\n" +
                  "health point: 900\n" +
@@ -540,7 +524,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：拾荒者\n" +
                  "体型：中型\n" +
                  "生命值：900\n" +
@@ -556,18 +540,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Manmoth(Language l)
+    public static String Manmoth(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Manmoth\n" +
                  "size: giant\n" +
                  "health point: 3200\n" +
@@ -582,7 +566,7 @@ public class Description
                  "    flame: 1\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：猛犸\n" +
                  "体型：大型\n" +
                  "生命值：3200\n" +
@@ -598,18 +582,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Tank(Language l)
+    public static String Tank(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Tank\n" +
                  "size: giant\n" +
                  "health point: 4800\n" +
@@ -624,7 +608,7 @@ public class Description
                  "    flame: 0.6\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：坦克\n" +
                  "体型：小型\n" +
                  "生命值：4800\n" +
@@ -640,18 +624,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String Dragon(Language l)
+    public static String Dragon(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "name: Dragon\n" +
                  "size: giant\n" +
                  "health point: 3500\n" +
@@ -666,7 +650,7 @@ public class Description
                  "    flame: 0.65\n" +
                  "    nuclear: 1\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：巨龙\n" +
                  "体型：大型\n" +
                  "生命值：3500\n" +
@@ -682,18 +666,18 @@ public class Description
                  "    核能抗性：1\n";
                 break;
             default:
-                answer = "Unknown language pack.";
+                answer = "Unknown OutgameSettings.Language pack.";
                 break;
         }
         return answer;
     }
 
-    public static String MachineGun(Language l)
+    public static String MachineGun(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English: answer = "Name: MachineGun\n" +
+            case OutgameSettings.Language.English: answer = "Name: MachineGun\n" +
                     "Damage: 35/45/55\n" +
                     "Attack Type: bullet\n" +
                     "Firing Rate: 140/210/280\n" +
@@ -701,7 +685,7 @@ public class Description
                     "Cost: 100\n" +
                     "Target Type: ground\n";
                 break;
-            case Language.Chinese: answer = "名字：哨兵枪\n" +
+            case OutgameSettings.Language.Chinese: answer = "名字：哨兵枪\n" +
                     "伤害：36/45/55\n" +
                     "攻击类型：子弹\n" +
                     "攻击速度：140/210/280\n" +
@@ -709,48 +693,48 @@ public class Description
                     "造价：100/80/140\n" +
                     "目标类型：地面单位\n";
                 break;
-            default: answer = "Unknown language pack";
+            default: answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Sniper(Language l)
+    public static String Sniper(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Sniper\n" +
-                     "Damage: 300/500/700\n" +
+                     "Damage: 300/520/740\n" +
                      "Attack Type: bullet\n" +
-                     "Firing Rate: 56\n" +
+                     "Firing Rate: 50\n" +
                      "Range: 0-550\n" +
-                     "Cost: 400/250/250\n" +
+                     "Cost: 500/400/400\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：狙击塔\n" +
-                     "伤害：300/500/700\n" +
+                     "伤害：300/520/740\n" +
                      "攻击类型：子弹\n" +
-                     "攻击速度：56\n" +
+                     "攻击速度：50\n" +
                      "射程：0-550\n" +
-                     "造价：400/250/250\n" +
+                     "造价：500/400/400\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String PillBox(Language l)
+    public static String PillBox(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: PillBox\n" +
                      "Damage: 50/85/120\n" +
                      "Attack Type: bullet\n" +
@@ -759,7 +743,7 @@ public class Description
                      "Cost: 260/280/300\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：机枪碉堡\n" +
                      "伤害：50/85/120\n" +
                      "攻击类型：子弹\n" +
@@ -769,18 +753,18 @@ public class Description
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String CrossbowHunter(Language l)
+    public static String CrossbowHunter(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: CrossbowHunter\n" +
                      "Damage: 110/220/330\n" +
                      "Attack Type: bullet\n" +
@@ -791,7 +775,7 @@ public class Description
                      "Cost: 210/190/190\n" +
                      "Target Type: ground or air\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：猎人塔\n" +
                      "伤害：110/220/330\n" +
                      "攻击类型：子弹\n" +
@@ -803,18 +787,18 @@ public class Description
                      "目标类型：地面单位，空中单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String SharpnelThrower(Language l)
+    public static String SharpnelThrower(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: SharpnelThrower\n" +
                      "Damage: 70/105/140\n" +
                      "Attack Type: explosive\n" +
@@ -824,7 +808,7 @@ public class Description
                      "Cost: 180/160/240\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：榴弹发射器\n" +
                      "伤害： 70/105/140\n" +
                      "攻击类型：爆炸\n" +
@@ -835,18 +819,18 @@ public class Description
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Rocket(Language l)
+    public static String Rocket(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Rocket\n" +
                      "Damage: 100/120/180\n" +
                      "Attack Type: bullet\n" +
@@ -855,10 +839,10 @@ public class Description
                      "Explosion Radius: 50\n" +
                      "Firing Rate: 70\n" +
                      "Range: 100-450\n" +
-                     "Cost: 450/400/480\n" +
+                     "Cost: 450/400/400\n" +
                      "Target Type: ground or air\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：火箭弹\n" +
                      "伤害： 100/120/180\n" +
                      "攻击类型：子弹\n" +
@@ -867,22 +851,22 @@ public class Description
                      "爆炸范围：50\n" +
                      "攻击速度：70\n" +
                      "射程：100-450\n" +
-                     "造价：450/400/480\n" +
+                     "造价：450/400/400\n" +
                      "目标类型：地面单位，空中单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String PatriotMissile(Language l)
+    public static String PatriotMissile(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: PatriotMissile\n" +
                      "Damage: 60/120/180\n" +
                      "Attack Type: bullet\n" +
@@ -890,11 +874,11 @@ public class Description
                      "Attack Type: explosive\n" +
                      "Explosion Radius: 45\n" +
                      "Firing Rate: 56/70/84\n" +
-                     "Range: 0-550\n" +
+                     "Range: 0-400\n" +
                      "Cost: 180/140/160\n" +
                      "Target Type: air\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：导弹塔\n" +
                      "伤害： 60/120/180\n" +
                      "攻击类型：子弹\n" +
@@ -902,23 +886,23 @@ public class Description
                      "攻击类型：爆炸\n" +
                      "爆炸范围：45\n" +
                      "攻击速度：56/70/84\n" +
-                     "射程：0-550\n" +
+                     "射程：0-400\n" +
                      "造价：180/140/160\n" +
                      "目标类型：空中单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Prisim(Language l)
+    public static String Prisim(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Prisim\n" +
                      "Damage: 80/130/180\n" +
                      "Attack Type: tesla\n" +
@@ -927,7 +911,7 @@ public class Description
                      "Cost: 135/90/90\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：电击塔\n" +
                      "伤害：80/130/180\n" +
                      "攻击类型：电磁\n" +
@@ -937,54 +921,52 @@ public class Description
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Transformer(Language l)
+    public static String Transformer(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Transformer\n" +
                      "Damage: 35/15/0\n" +
                      "Attack Type: tesla\n" +
-                     "Slow Radius: 120\n" +
                      "Slow Effect: 0.8/0.6/0.45\n" +
                      "Slow Duration: 3s\n" +
                      "Firing Rate: 70\n" +
                      "Range: 0-240/0-270/0-300\n" +
-                     "Cost: 140/160/180\n" +
+                     "Cost: 140/170/200\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：变压器\n" +
                      "伤害：35/15/0\n" +
                      "攻击类型：电磁\n" +
-                     "减速半径：120\n" +
                      "减速效果：0.8/0.6/0.45\n" +
                      "持续时间：3秒\n" +
                      "攻击速度：70\n" +
                      "射程：0-240/0-260/0-280\n" +
-                     "造价：140/160/180\n" +
+                     "造价：140/170/200\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Thunder(Language l)
+    public static String Thunder(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Thunder\n" +
                      "Damage: 180/300/450\n" +
                      "Attack Type: tesla\n" +
@@ -995,7 +977,7 @@ public class Description
                      "Cost: 240/210/260\n" +
                      "Target Type: ground or air\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：闪电塔\n" +
                      "伤害：180/300/450\n" +
                      "攻击类型：电磁\n" +
@@ -1007,115 +989,109 @@ public class Description
                      "目标类型：地面单位，空中单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String FlameThrower(Language l)
+    public static String FlameThrower(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: FlameThrower\n" +
                      "Damage: 0\n" +
                      "Attack Type: flame\n" +
-                     "Damage Per Second: 50/70/90\n" +
+                     "Damage Per Second: 30/40/46\n" +
                      "Duration: 2s\n" +
-                     "Burning Radius: 80\n" +
                      "Firing Rate: 300\n" +
                      "Range: 0-190\n" +
                      "Cost: 135/85/75\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：火焰喷射器\n" +
                      "直接伤害：0\n" +
                      "攻击类型：火焰\n" +
-                     "灼烧伤害（每秒）：50/70/90\n" +
+                     "灼烧伤害（每秒）：30/40/46\n" +
                      "持续时间：2秒" +
-                     "灼烧半径：80" +
                      "攻击速度：300\n" +
                      "射程：0-190\n" +
                      "造价：135/85/75\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String MolotovCocktail(Language l)
+    public static String MolotovCocktail(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: MolotovCocktail\n" +
                      "Damage: 0\n" +
                      "Attack Type: flame\n" +
                      "Damage Per Second: 80/85/85\n" +
                      "Duration: 5/7/10s\n" +
-                     "Burning Radius: 45\n" +
                      "Firing Rate: 150\n" +
                      "Range: 0-320\n" +
-                     "Cost: 200/130/130\n" +
+                     "Cost: 200/130/100\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
+            case OutgameSettings.Language.Chinese:
                 answer = "名字：燃烧瓶\n" +
                      "直接伤害：0\n" +
                      "攻击类型：火焰\n" +
-                     "灼烧伤害（每秒）：50/70/90\n" +
+                     "灼烧伤害（每秒）：80/85/85\n" +
                      "持续时间：5秒/7秒/10秒" +
-                     "灼烧半径：45" +
                      "攻击速度：150\n" +
                      "射程：0-320\n" +
-                     "造价：135/85/75\n" +
+                     "造价：200/130/100\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;
     }
 
-    public static String Micro(Language l)
+    public static String Micro(OutgameSettings.Language l)
     {
         String answer = "";
         switch (l)
         {
-            case Language.English:
+            case OutgameSettings.Language.English:
                 answer = "Name: Micro\n" +
                      "Damage: 0\n" +
                      "Attack Type: flame\n" +
-                     "Damage Per Second: 30/35/40\n" +
+                     "Damage Per Second: 18/20/22\n" +
                      "Duration: 5s\n" +
-                     "Burning Radius: 160/180/200\n" +
                      "Firing Rate: 300\n" +
                      "Range: 0-400\n" +
                      "Cost: 135/85/75\n" +
                      "Target Type: ground\n";
                 break;
-            case Language.Chinese:
-                answer = "名字：闪电塔\n" +
+            case OutgameSettings.Language.Chinese:
+                answer = "名字：微波塔\n" +
                      "直接伤害：0\n" +
                      "攻击类型：火焰\n" +
-                     "灼烧伤害（每秒）：30/35/40\n" +
+                     "灼烧伤害（每秒）：18/20/22\n" +
                      "持续时间：5秒" +
-                     "灼烧半径：160/180/200" +
                      "攻击速度：300\n" +
                      "射程：0-400\n" +
                      "造价：135/85/75\n" +
                      "目标类型：地面单位\n";
                 break;
             default:
-                answer = "Unknown language pack";
+                answer = "Unknown OutgameSettings.Language pack";
                 break;
         }
         return answer;

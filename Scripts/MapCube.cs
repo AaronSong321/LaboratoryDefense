@@ -16,8 +16,7 @@ public class MapCube : MonoBehaviour
     private GameManager gameManager;
 
     public GameObject buildEffect;
-    private Player player;
-    private Renderer renderer;
+    private Renderer mapRenderer;
     private Color color;
 
     public class ReturnMoneyEventArgs: EventArgs
@@ -33,14 +32,13 @@ public class MapCube : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
         gameManager.SubscribeReturnMoney(this);
 
-        renderer = GetComponent<Renderer>();
+        mapRenderer = GetComponent<Renderer>();
         currentLevel = 0;
     }
 
@@ -80,9 +78,9 @@ public class MapCube : MonoBehaviour
         switch (currentLevel)
         {
             case 0: break;
-            case 1: ReturnMoneyEvent(this, new ReturnMoneyEventArgs(turretData.cost[0] / 2)); break;
-            case 2: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.cost[0] + turretData.cost[1]) / 2)); break;
-            case 3: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.cost[0] + turretData.cost[1] + turretData.cost[2]) / 2)); break;
+            case 1: ReturnMoneyEvent(this, new ReturnMoneyEventArgs(turretData.level1.cost / 2)); break;
+            case 2: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.level1.cost + turretData.level2.cost) / 2)); break;
+            case 3: ReturnMoneyEvent(this, new ReturnMoneyEventArgs((turretData.level1.cost + turretData.level2.cost + turretData.level3.cost) / 2)); break;
         }
         Destroy(turretGo);
         currentLevel = 0;
@@ -98,13 +96,13 @@ public class MapCube : MonoBehaviour
         {
             color = Color.green;
             color.a /= 4;
-            renderer.material.color = color;
+            mapRenderer.material.color = color;
         }
     }
     void OnMouseExit()
     {
         color = Color.white;
         color.a /= 4;
-        renderer.material.color = color;
+        mapRenderer.material.color = color;
     }
 }
